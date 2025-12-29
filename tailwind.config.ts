@@ -14,7 +14,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ["Space Grotesk", "sans-serif"],
+        sans: ["Outfit", "sans-serif"],
         mono: ["JetBrains Mono", "monospace"],
       },
       colors: {
@@ -51,11 +51,13 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        cyber: {
-          glow: "hsl(var(--cyber-glow))",
-          dim: "hsl(var(--cyber-dim))",
-          terminal: "hsl(var(--terminal-green))",
-          dark: "hsl(var(--matrix-dark))",
+        blue: {
+          team: "hsl(var(--blue-team))",
+          glow: "hsl(var(--blue-glow))",
+        },
+        red: {
+          team: "hsl(var(--red-team))",
+          glow: "hsl(var(--red-glow))",
         },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",

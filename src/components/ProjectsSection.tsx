@@ -1,22 +1,36 @@
-import { ExternalLink, Rocket } from "lucide-react";
+import { ExternalLink, Rocket, Shield, Crosshair } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
 const ProjectsSection = () => {
   const projects = [
     {
-      title: "Simple Messaging App",
-      tech: ["Go", "MySQL", "MongoDB", "AWS", "GitHub Actions", "ELK Stack"],
-      description: "A lightweight real-time application using Go (Fiber), WebSockets, deployed on AWS. Includes CI/CD with GitHub Actions and observability via ELK Stack.",
-      image: "https://www.gilangswandaru.my.id/assets/diagram%20messaging%20app.png",
-      github: "https://github.com/glng-swndru/messaging-app"
+      title: "SIEM Lab with ELK Stack",
+      type: "blue",
+      tech: ["Elasticsearch", "Logstash", "Kibana", "Filebeat"],
+      description: "Built a home SIEM lab for log aggregation, threat detection, and security monitoring. Configured custom detection rules and dashboards for real-time alerting.",
+      github: "https://github.com/glng-swndru"
     },
     {
-      title: "Music Catalog API",
-      tech: ["Go", "Go Fiber", "PostgreSQL", "Spotify API", "Docker"],
-      description: "Backend API for managing music preferences, login, song search, and recommendations with Spotify integration. PostgreSQL managed with Docker.",
-      image: "https://www.gilangswandaru.my.id/assets/diagram%20spotify%20api.png",
-      github: "https://github.com/glng-swndru/music-catalog"
+      title: "Network Traffic Analysis",
+      type: "blue",
+      tech: ["Wireshark", "Zeek", "Python", "Suricata"],
+      description: "Developed packet capture and analysis workflows for identifying malicious traffic patterns, C2 communication, and data exfiltration attempts.",
+      github: "https://github.com/glng-swndru"
+    },
+    {
+      title: "Vulnerability Scanner",
+      type: "red",
+      tech: ["Python", "Nmap", "OWASP ZAP", "Bash"],
+      description: "Created automated vulnerability scanning scripts for web applications and network infrastructure with detailed reporting capabilities.",
+      github: "https://github.com/glng-swndru"
+    },
+    {
+      title: "Incident Response Playbooks",
+      type: "blue",
+      tech: ["NIST", "MITRE ATT&CK", "Documentation"],
+      description: "Developed comprehensive IR playbooks for common attack scenarios including ransomware, phishing, and data breaches following industry frameworks.",
+      github: "https://github.com/glng-swndru"
     }
   ];
 
@@ -24,55 +38,86 @@ const ProjectsSection = () => {
     <section id="projects" className="py-24 relative">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <span className="font-mono text-primary text-sm mb-4 block">// MY PROJECTS</span>
+          <div className="flex items-center justify-center gap-2 mb-4">
+            <span className="w-12 h-[1px] bg-gradient-to-r from-transparent to-primary" />
+            <span className="font-mono text-primary text-sm">PROJECTS</span>
+            <span className="w-12 h-[1px] bg-gradient-to-l from-transparent to-primary" />
+          </div>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Featured <span className="text-primary text-glow">Work</span>
+            Security <span className="text-blue-team">Labs</span> & <span className="text-red-team">Research</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Showcase of my personal projects demonstrating cloud architecture and DevOps practices
+            Hands-on security projects demonstrating both defensive and offensive capabilities
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
           {projects.map((project, index) => (
             <Card 
               key={project.title}
-              className="bg-card/50 border-border overflow-hidden group hover:border-primary/50 transition-all duration-300 hover:box-glow"
+              className={`bg-card/50 border-border overflow-hidden group transition-all duration-300 ${
+                project.type === 'blue' 
+                  ? 'hover:border-blue-team/50 hover:shadow-[0_0_30px_-10px_hsl(217,91%,60%,0.3)]' 
+                  : 'hover:border-red-team/50 hover:shadow-[0_0_30px_-10px_hsl(0,72%,51%,0.3)]'
+              }`}
             >
-              <div className="relative h-48 overflow-hidden bg-secondary/50">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent" />
-              </div>
               <CardContent className="p-6">
-                <h3 className="text-xl font-semibold text-foreground mb-3 group-hover:text-primary transition-colors">
+                <div className="flex items-start justify-between mb-4">
+                  <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${
+                    project.type === 'blue' 
+                      ? 'bg-blue-team/10 border border-blue-team/30' 
+                      : 'bg-red-team/10 border border-red-team/30'
+                  }`}>
+                    {project.type === 'blue' 
+                      ? <Shield className="w-5 h-5 text-blue-team" />
+                      : <Crosshair className="w-5 h-5 text-red-team" />
+                    }
+                  </div>
+                  <span className={`text-xs font-mono px-2 py-1 rounded ${
+                    project.type === 'blue'
+                      ? 'bg-blue-team/10 text-blue-team border border-blue-team/20'
+                      : 'bg-red-team/10 text-red-team border border-red-team/20'
+                  }`}>
+                    {project.type === 'blue' ? 'Blue Team' : 'Red Team'}
+                  </span>
+                </div>
+                
+                <h3 className={`text-xl font-semibold mb-3 transition-colors ${
+                  project.type === 'blue' 
+                    ? 'text-foreground group-hover:text-blue-team' 
+                    : 'text-foreground group-hover:text-red-team'
+                }`}>
                   {project.title}
                 </h3>
+                
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tech.map((t) => (
                     <span 
                       key={t}
-                      className="px-2 py-1 text-xs font-mono bg-primary/10 border border-primary/30 rounded text-primary/80"
+                      className="px-2 py-1 text-xs font-mono bg-secondary/50 border border-border rounded text-muted-foreground"
                     >
                       {t}
                     </span>
                   ))}
                 </div>
+                
                 <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
                   {project.description}
                 </p>
+                
                 <Button 
                   variant="outline" 
                   size="sm"
-                  className="border-primary/50 text-primary hover:bg-primary/10"
+                  className={`border-border ${
+                    project.type === 'blue'
+                      ? 'hover:border-blue-team/50 hover:text-blue-team'
+                      : 'hover:border-red-team/50 hover:text-red-team'
+                  }`}
                   asChild
                 >
                   <a href={project.github} target="_blank" rel="noopener noreferrer">
                     <ExternalLink className="w-4 h-4 mr-2" />
-                    View Code
+                    View Project
                   </a>
                 </Button>
               </CardContent>
@@ -81,13 +126,13 @@ const ProjectsSection = () => {
         </div>
 
         {/* Coming Soon Card */}
-        <div className="max-w-5xl mx-auto mt-8">
+        <div className="max-w-5xl mx-auto mt-6">
           <Card className="bg-card/30 border-border border-dashed">
             <CardContent className="p-8 text-center">
               <Rocket className="w-12 h-12 text-primary/50 mx-auto mb-4" />
-              <h3 className="text-lg font-semibold text-foreground/70 mb-2">More Projects Coming Soon</h3>
+              <h3 className="text-lg font-semibold text-foreground/70 mb-2">More Projects Coming</h3>
               <p className="text-sm text-muted-foreground">
-                I'm constantly working on new projects. Check back soon for updates!
+                Currently working on CTF writeups, malware analysis labs, and cloud security projects.
               </p>
             </CardContent>
           </Card>

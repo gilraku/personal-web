@@ -30,7 +30,7 @@ const Navbar = () => {
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? "bg-background/90 backdrop-blur-md border-b border-border" : "bg-transparent"
+      isScrolled ? "bg-background/95 backdrop-blur-md border-b border-border" : "bg-transparent"
     }`}>
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-16">
@@ -43,7 +43,9 @@ const Navbar = () => {
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
           >
-            <Shield className="w-6 h-6 text-primary group-hover:text-glow transition-all" />
+            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-team to-red-team flex items-center justify-center">
+              <Shield className="w-4 h-4 text-white" />
+            </div>
             <span className="font-bold text-foreground">GS</span>
           </a>
 
@@ -73,7 +75,7 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden absolute top-16 left-0 right-0 bg-background/95 backdrop-blur-md border-b border-border">
+          <div className="md:hidden absolute top-16 left-0 right-0 bg-background/98 backdrop-blur-md border-b border-border">
             <div className="container mx-auto px-6 py-4 space-y-2">
               {navLinks.map((link) => (
                 <button
