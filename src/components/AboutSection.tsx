@@ -1,42 +1,42 @@
-import { Shield, Crosshair, FileCheck, Search, Bug, Lock } from "lucide-react";
+import { Shield, Crosshair, FileCheck, Search, BookOpen, Target } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
 const AboutSection = () => {
-  const specializations = [
+  const learningAreas = [
     {
       icon: Shield,
-      title: "Blue Team Defense",
-      description: "Threat detection, incident response, SIEM monitoring, and security operations",
+      title: "Blue Team Basics",
+      description: "Learning threat detection, log analysis, and security monitoring fundamentals",
       color: "blue"
     },
     {
       icon: Crosshair,
-      title: "Red Team Awareness",
-      description: "Understanding attack vectors, penetration testing concepts, and vulnerability assessment",
+      title: "Red Team Concepts",
+      description: "Understanding attack methods to better defend against them",
       color: "red"
     },
     {
       icon: FileCheck,
-      title: "GRC & Compliance",
-      description: "Security frameworks, risk assessment, and regulatory compliance",
+      title: "GRC Foundations",
+      description: "Studying security frameworks, compliance basics, and risk concepts",
       color: "neutral"
     },
     {
       icon: Search,
-      title: "Threat Hunting",
-      description: "Log analysis, IOC investigation, and proactive threat detection",
+      title: "Log Analysis",
+      description: "Practicing with SIEM tools and learning to identify suspicious activities",
       color: "blue"
     },
     {
-      icon: Bug,
-      title: "Malware Analysis",
-      description: "Understanding malicious software behavior and indicators",
+      icon: Target,
+      title: "CTF Challenges",
+      description: "Solving beginner CTF challenges to build practical skills",
       color: "red"
     },
     {
-      icon: Lock,
-      title: "Security Hardening",
-      description: "System configuration, access controls, and defense in depth",
+      icon: BookOpen,
+      title: "Continuous Learning",
+      description: "Taking online courses, reading blogs, and building home labs",
       color: "neutral"
     }
   ];
@@ -74,39 +74,37 @@ const AboutSection = () => {
             <span className="w-12 h-[1px] bg-gradient-to-l from-transparent to-blue-team" />
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-            Security <span className="text-blue-team text-glow-blue">Professional</span>
+            My <span className="text-blue-team text-glow-blue">Learning Journey</span>
           </h2>
         </div>
 
         <div className="max-w-4xl mx-auto">
           <div className="space-y-6 text-center mb-16">
             <p className="text-lg text-muted-foreground leading-relaxed">
-              I am an Information Technology graduate transitioning into Cybersecurity with deep interest 
-              in both <span className="text-blue-team font-medium">Blue Team</span> (defensive) and 
-              <span className="text-red-team font-medium"> Red Team</span> (offensive) security operations.
+              I'm an IT graduate at the beginning of my cybersecurity journey. I'm fascinated by both 
+              <span className="text-blue-team font-medium"> Blue Team</span> (defensive security) and 
+              <span className="text-red-team font-medium"> Red Team</span> (offensive security) concepts.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              My experience in regulation and compliance has given me a strong foundation in security 
-              frameworks, risk assessment, and understanding the attacker mindset — essential for 
-              building robust defenses.
+              Currently building my foundation through online courses, home labs, and hands-on practice. 
+              I believe in learning by doing and documenting my progress along the way.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {specializations.map((spec, index) => {
-              const colors = getColorClasses(spec.color);
+            {learningAreas.map((area, index) => {
+              const colors = getColorClasses(area.color);
               return (
                 <Card 
-                  key={spec.title}
+                  key={area.title}
                   className={`bg-card/50 border-border ${colors.hover} transition-all duration-300 group`}
-                  style={{ animationDelay: `${index * 0.1}s` }}
                 >
                   <CardContent className="p-5">
                     <div className={`w-12 h-12 rounded-lg ${colors.bg} border flex items-center justify-center mb-4 transition-colors`}>
-                      <spec.icon className={`w-6 h-6 ${colors.icon}`} />
+                      <area.icon className={`w-6 h-6 ${colors.icon}`} />
                     </div>
-                    <h3 className="text-base font-semibold text-foreground mb-2">{spec.title}</h3>
-                    <p className="text-sm text-muted-foreground">{spec.description}</p>
+                    <h3 className="text-base font-semibold text-foreground mb-2">{area.title}</h3>
+                    <p className="text-sm text-muted-foreground">{area.description}</p>
                   </CardContent>
                 </Card>
               );
