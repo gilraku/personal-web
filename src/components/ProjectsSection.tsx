@@ -1,36 +1,38 @@
-import { ExternalLink, Rocket, Shield, Crosshair, Lightbulb } from "lucide-react";
+import { ExternalLink, Rocket, Shield, Crosshair, Lightbulb, Flame, Trophy } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
 const ProjectsSection = () => {
   const projects = [
     {
-      title: "Home SIEM Lab Setup",
-      type: "blue",
-      tech: ["ELK Stack", "VirtualBox", "Ubuntu"],
-      description: "Setting up a basic SIEM environment at home to practice log collection and analysis. Learning to configure Elasticsearch, Logstash, and Kibana.",
-      status: "In Progress"
-    },
-    {
-      title: "TryHackMe Journey",
+      title: "TryHackMe Labs",
       type: "red",
-      tech: ["TryHackMe", "Linux", "Networking"],
-      description: "Working through beginner rooms on TryHackMe to understand basic penetration testing concepts and Linux fundamentals.",
-      status: "Ongoing"
+      tech: ["Linux", "Networking", "Web Security"],
+      description: "Completed 84 rooms covering penetration testing, Linux fundamentals, and web exploitation. Currently at 0x8 [HACKER] level with Top 8% global ranking.",
+      status: "84 Rooms",
+      link: "https://tryhackme.com/p/GSec"
     },
     {
-      title: "Network Traffic Practice",
+      title: "LetsDefend SOC",
       type: "blue",
-      tech: ["Wireshark", "tcpdump"],
-      description: "Learning to capture and analyze network packets. Practicing with sample pcap files to identify different protocols and anomalies.",
+      tech: ["SIEM", "Incident Response", "MITRE ATT&CK"],
+      description: "Blue team training with 100% success rate. Investigated various alert types including Malware, Ransomware, C2, and Web Attacks.",
+      status: "1433 Points",
+      link: "https://app.letsdefend.io/user/gilang"
+    },
+    {
+      title: "Network Traffic Analysis",
+      type: "blue",
+      tech: ["Wireshark", "tcpdump", "Packet Analysis"],
+      description: "Practicing network forensics by analyzing pcap files. Learning to identify malicious traffic patterns and protocol anomalies.",
       status: "Learning"
     },
     {
-      title: "Python for Security",
+      title: "Home SIEM Lab",
       type: "learning",
-      tech: ["Python", "Automation"],
-      description: "Building small Python scripts for security tasks. Starting with basic automation and working towards security-focused tools.",
-      status: "Beginner"
+      tech: ["ELK Stack", "VirtualBox", "Ubuntu"],
+      description: "Building a home lab environment for practicing log collection, parsing, and threat detection using open-source tools.",
+      status: "In Progress"
     }
   ];
 
@@ -73,10 +75,10 @@ const ProjectsSection = () => {
             <span className="w-12 h-[1px] bg-gradient-to-l from-transparent to-primary" />
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Learning <span className="text-blue-team">Projects</span>
+            Hands-on <span className="text-blue-team">Experience</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Hands-on practice projects to build real skills. Learning by doing, one lab at a time.
+            Active learning through CTF platforms and security labs.
           </p>
         </div>
 
@@ -95,9 +97,18 @@ const ProjectsSection = () => {
                     <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${styles.bg} border`}>
                       <Icon className={`w-5 h-5 ${styles.color}`} />
                     </div>
-                    <span className={`text-xs font-mono px-2 py-1 rounded border ${styles.badge}`}>
-                      {project.status}
-                    </span>
+                    <div className="flex items-center gap-2">
+                      <span className={`text-xs font-mono px-2 py-1 rounded border ${styles.badge}`}>
+                        {project.status}
+                      </span>
+                      {project.link && (
+                        <Button variant="ghost" size="sm" className="h-7 w-7 p-0 text-muted-foreground hover:text-primary" asChild>
+                          <a href={project.link} target="_blank" rel="noopener noreferrer">
+                            <ExternalLink className="w-3.5 h-3.5" />
+                          </a>
+                        </Button>
+                      )}
+                    </div>
                   </div>
                   
                   <h3 className={`text-lg font-semibold mb-3 text-foreground group-hover:${styles.color} transition-colors`}>
@@ -122,20 +133,6 @@ const ProjectsSection = () => {
               </Card>
             );
           })}
-        </div>
-
-        {/* Goals Card */}
-        <div className="max-w-4xl mx-auto mt-8">
-          <Card className="bg-gradient-to-r from-blue-team/5 to-red-team/5 border-border">
-            <CardContent className="p-8 text-center">
-              <Rocket className="w-12 h-12 text-primary mx-auto mb-4" />
-              <h3 className="text-lg font-semibold text-foreground mb-2">Learning Goals</h3>
-              <p className="text-sm text-muted-foreground max-w-lg mx-auto">
-                Working towards Security+ certification, completing more CTF challenges, 
-                and building a comprehensive home security lab.
-              </p>
-            </CardContent>
-          </Card>
         </div>
       </div>
     </section>
