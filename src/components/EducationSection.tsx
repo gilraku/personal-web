@@ -1,9 +1,10 @@
-import { GraduationCap, Award, BookOpen, ExternalLink, Trophy, Flame } from "lucide-react";
+import { GraduationCap, Award, BookOpen, ExternalLink } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import ScrollReveal from "@/components/ScrollReveal";
 import { useInView } from "@/hooks/useInView";
+import { TryHackMeIcon, LetsDefendIcon } from "@/components/icons/PlatformIcons";
 
 const EducationSection = () => {
   const [statsRef, statsInView] = useInView<HTMLDivElement>({ threshold: 0.2 });
@@ -20,7 +21,8 @@ const EducationSection = () => {
         { label: "Streak", value: 28, isNumber: true, suffix: " days" },
       ],
       level: "0x8 [HACKER]",
-      color: "red-team"
+      color: "red-team",
+      iconColor: "#88cc14"
     },
     {
       platform: "LetsDefend",
@@ -33,7 +35,8 @@ const EducationSection = () => {
         { label: "Status", value: "VIP+", isNumber: false },
       ],
       badges: ["Windows User", "Network Engineer", "Incident Handler"],
-      color: "blue-team"
+      color: "blue-team",
+      iconColor: "#3b82f6"
     }
   ];
 
@@ -73,15 +76,13 @@ const EducationSection = () => {
                 <CardContent className="p-6">
                   <div className="flex items-center justify-between mb-6">
                     <div className="flex items-center gap-3">
-                      {platform.platform === "TryHackMe" ? (
-                        <div className="w-12 h-12 rounded-lg bg-red-team/10 border border-red-team/30 flex items-center justify-center">
-                          <Flame className="w-6 h-6 text-red-team" />
-                        </div>
-                      ) : (
-                        <div className="w-12 h-12 rounded-lg bg-blue-team/10 border border-blue-team/30 flex items-center justify-center">
-                          <Trophy className="w-6 h-6 text-blue-team" />
-                        </div>
-                      )}
+                      <div className={`w-12 h-12 rounded-lg bg-${platform.color}/10 border border-${platform.color}/30 flex items-center justify-center`}>
+                        {platform.platform === "TryHackMe" ? (
+                          <TryHackMeIcon className="w-7 h-7" style={{ color: platform.iconColor }} />
+                        ) : (
+                          <LetsDefendIcon className="w-7 h-7" style={{ color: platform.iconColor }} />
+                        )}
+                      </div>
                       <div>
                         <h3 className="text-lg font-semibold text-foreground">{platform.platform}</h3>
                         <p className="text-sm text-muted-foreground">@{platform.username}</p>
@@ -102,7 +103,7 @@ const EducationSection = () => {
 
                   <div className="grid grid-cols-2 gap-4 mb-4">
                     {platform.stats.map((stat) => (
-                      <div key={stat.label} className="text-center p-3 rounded-lg bg-secondary/30 border border-border">
+                      <div key={stat.label} className="text-center p-3 rounded-lg bg-secondary/50 border border-border">
                         <p className={`text-xl font-bold ${platform.color === 'red-team' ? 'text-red-team' : 'text-blue-team'}`}>
                           {stat.isNumber ? (
                             <AnimatedCounter 
@@ -147,7 +148,7 @@ const EducationSection = () => {
                 <div className="space-y-2">
                   {knowHow.map((skill, index) => (
                     <ScrollReveal key={skill} delay={150 + index * 50}>
-                      <div className="flex items-center gap-2 p-2 rounded bg-secondary/30">
+                      <div className="flex items-center gap-2 p-2 rounded bg-secondary/50">
                         <span className="w-2 h-2 rounded-full bg-blue-team" />
                         <span className="text-sm text-muted-foreground">{skill}</span>
                       </div>

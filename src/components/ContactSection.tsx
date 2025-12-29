@@ -1,6 +1,7 @@
-import { Mail, Linkedin, Github, Coffee, Flame, Trophy } from "lucide-react";
+import { Mail, Linkedin, Github, Coffee } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ScrollReveal from "@/components/ScrollReveal";
+import { TryHackMeIcon, LetsDefendIcon } from "@/components/icons/PlatformIcons";
 
 const ContactSection = () => {
   const socials = [
@@ -8,26 +9,34 @@ const ContactSection = () => {
       icon: Linkedin, 
       label: "LinkedIn", 
       href: "https://www.linkedin.com/in/gilang-swandaru/",
+      isLucide: true,
     },
     { 
       icon: Github, 
       label: "GitHub", 
       href: "https://github.com/glng-swndru",
+      isLucide: true,
     },
     { 
       icon: Mail, 
       label: "Email", 
       href: "mailto:gilangswandaru@gmail.com",
+      isLucide: true,
     },
+  ];
+
+  const platforms = [
     { 
-      icon: Flame, 
+      Icon: TryHackMeIcon, 
       label: "TryHackMe", 
       href: "https://tryhackme.com/p/GSec",
+      color: "#88cc14",
     },
     { 
-      icon: Trophy, 
+      Icon: LetsDefendIcon, 
       label: "LetsDefend", 
       href: "https://app.letsdefend.io/user/gilang",
+      color: "#3b82f6",
     },
   ];
 
@@ -50,7 +59,7 @@ const ContactSection = () => {
           </ScrollReveal>
 
           <ScrollReveal delay={100}>
-            <div className="flex flex-wrap justify-center gap-4 mb-12">
+            <div className="flex flex-wrap justify-center gap-4 mb-6">
               {socials.map((social, index) => (
                 <ScrollReveal key={social.label} delay={150 + index * 50}>
                   <Button
@@ -67,12 +76,29 @@ const ContactSection = () => {
                 </ScrollReveal>
               ))}
             </div>
+            <div className="flex flex-wrap justify-center gap-4 mb-12">
+              {platforms.map((platform, index) => (
+                <ScrollReveal key={platform.label} delay={300 + index * 50}>
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="border-border bg-card/50 text-muted-foreground hover:text-primary hover:border-primary/50 transition-all"
+                    asChild
+                  >
+                    <a href={platform.href} target="_blank" rel="noopener noreferrer">
+                      <platform.Icon className="w-5 h-5 mr-2" style={{ color: platform.color }} />
+                      {platform.label}
+                    </a>
+                  </Button>
+                </ScrollReveal>
+              ))}
+            </div>
           </ScrollReveal>
 
           {/* Terminal */}
-          <ScrollReveal delay={300}>
+          <ScrollReveal delay={400}>
             <div className="bg-card border border-border rounded-lg overflow-hidden">
-              <div className="flex items-center gap-2 px-4 py-3 border-b border-border bg-secondary/30">
+              <div className="flex items-center gap-2 px-4 py-3 border-b border-border bg-secondary/50">
                 <span className="w-3 h-3 rounded-full bg-red-team/80" />
                 <span className="w-3 h-3 rounded-full bg-yellow-500/80" />
                 <span className="w-3 h-3 rounded-full bg-blue-team/80" />
@@ -80,12 +106,12 @@ const ContactSection = () => {
               </div>
               <div className="p-6 font-mono text-sm text-left space-y-3">
                 <div className="flex items-center gap-2">
-                  <Flame className="w-4 h-4 text-red-team" />
+                  <TryHackMeIcon className="w-4 h-4" style={{ color: "#88cc14" }} />
                   <span className="text-muted-foreground">TryHackMe:</span>
                   <span className="text-red-team">Top 8% | 84 Rooms</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Trophy className="w-4 h-4 text-blue-team" />
+                  <LetsDefendIcon className="w-4 h-4" style={{ color: "#3b82f6" }} />
                   <span className="text-muted-foreground">LetsDefend:</span>
                   <span className="text-blue-team">1433 Points | 100% Success</span>
                 </div>

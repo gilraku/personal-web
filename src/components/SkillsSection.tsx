@@ -1,17 +1,18 @@
 import { Shield, Crosshair, BookOpen } from "lucide-react";
 import ScrollReveal from "@/components/ScrollReveal";
+import { SplunkIcon, NmapIcon, WiresharkIcon, ElkStackIcon, KaliLinuxIcon, OwaspIcon } from "@/components/icons/PlatformIcons";
 
 const SkillsSection = () => {
   const blueTeamSkills = [
-    { name: "Splunk", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/splunk/splunk-original-wordmark.svg", level: "Learning" },
-    { name: "ELK Stack", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/elasticsearch/elasticsearch-original.svg", level: "Learning" },
-    { name: "Wireshark", icon: "https://upload.wikimedia.org/wikipedia/commons/d/df/Wireshark_icon.svg", level: "Beginner" },
+    { name: "Splunk", Icon: SplunkIcon, level: "Learning", color: "#65A637" },
+    { name: "ELK Stack", Icon: ElkStackIcon, level: "Learning", color: "#00BFB3" },
+    { name: "Wireshark", Icon: WiresharkIcon, level: "Beginner", color: "#1679A7" },
   ];
 
   const redTeamSkills = [
-    { name: "Kali Linux", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg", level: "Exploring" },
-    { name: "Nmap", icon: "https://nmap.org/images/nmap-logo-64.png", level: "Learning" },
-    { name: "OWASP", icon: "https://owasp.org/assets/images/logo.png", level: "Studying" },
+    { name: "Kali Linux", Icon: KaliLinuxIcon, level: "Exploring", color: "#557C94" },
+    { name: "Nmap", Icon: NmapIcon, level: "Learning", color: "#4A90D9" },
+    { name: "OWASP", Icon: OwaspIcon, level: "Studying", color: "#F7941E" },
   ];
 
   const coreSkills = [
@@ -20,9 +21,21 @@ const SkillsSection = () => {
     { name: "Linux", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg", level: "Beginner" },
   ];
 
-  const SkillCard = ({ skill, hoverColor, delay }: { skill: typeof blueTeamSkills[0], hoverColor: string, delay: number }) => (
+  const IconSkillCard = ({ skill, hoverColor, delay }: { skill: typeof blueTeamSkills[0], hoverColor: string, delay: number }) => (
     <ScrollReveal delay={delay}>
-      <div className={`group flex flex-col items-center p-4 rounded-lg bg-secondary/30 border border-border ${hoverColor} transition-all duration-300`}>
+      <div className={`group flex flex-col items-center p-4 rounded-lg bg-secondary/50 border border-border ${hoverColor} transition-all duration-300`}>
+        <div className="w-12 h-12 mb-3 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+          <skill.Icon className="w-10 h-10" style={{ color: skill.color }} />
+        </div>
+        <span className="text-sm font-medium text-foreground text-center mb-1">{skill.name}</span>
+        <span className="text-xs font-mono text-muted-foreground">{skill.level}</span>
+      </div>
+    </ScrollReveal>
+  );
+
+  const ImgSkillCard = ({ skill, hoverColor, delay }: { skill: typeof coreSkills[0], hoverColor: string, delay: number }) => (
+    <ScrollReveal delay={delay}>
+      <div className={`group flex flex-col items-center p-4 rounded-lg bg-secondary/50 border border-border ${hoverColor} transition-all duration-300`}>
         <div className="w-12 h-12 mb-3 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
           <img src={skill.icon} alt={skill.name} className="w-full h-full object-contain" />
         </div>
@@ -67,7 +80,7 @@ const SkillsSection = () => {
             </ScrollReveal>
             <div className="grid grid-cols-3 gap-4">
               {blueTeamSkills.map((skill, index) => (
-                <SkillCard key={skill.name} skill={skill} hoverColor="hover:border-blue-team/50 hover:bg-blue-team/5" delay={100 + index * 100} />
+                <IconSkillCard key={skill.name} skill={skill} hoverColor="hover:border-blue-team/50 hover:bg-blue-team/10" delay={100 + index * 100} />
               ))}
             </div>
           </div>
@@ -87,7 +100,7 @@ const SkillsSection = () => {
             </ScrollReveal>
             <div className="grid grid-cols-3 gap-4">
               {redTeamSkills.map((skill, index) => (
-                <SkillCard key={skill.name} skill={skill} hoverColor="hover:border-red-team/50 hover:bg-red-team/5" delay={100 + index * 100} />
+                <IconSkillCard key={skill.name} skill={skill} hoverColor="hover:border-red-team/50 hover:bg-red-team/10" delay={100 + index * 100} />
               ))}
             </div>
           </div>
@@ -107,7 +120,7 @@ const SkillsSection = () => {
             </ScrollReveal>
             <div className="grid grid-cols-3 gap-4">
               {coreSkills.map((skill, index) => (
-                <SkillCard key={skill.name} skill={skill} hoverColor="hover:border-primary/50 hover:bg-primary/5" delay={100 + index * 100} />
+                <ImgSkillCard key={skill.name} skill={skill} hoverColor="hover:border-primary/50 hover:bg-primary/10" delay={100 + index * 100} />
               ))}
             </div>
           </div>
