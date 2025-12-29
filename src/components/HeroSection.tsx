@@ -1,4 +1,4 @@
-import { Shield, Crosshair, ChevronDown } from "lucide-react";
+import { Shield, Crosshair, ChevronDown, BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import profileImage from "@/assets/profile-anya.png";
 
@@ -34,17 +34,12 @@ const HeroSection = () => {
                   className="w-full h-full object-cover"
                 />
               </div>
-              
-              {/* Rotating radar effect */}
-              <div className="absolute inset-0 rounded-full overflow-hidden opacity-20">
-                <div className="absolute inset-0 bg-gradient-conic from-blue-team via-transparent to-transparent animate-radar" />
-              </div>
             </div>
             
             {/* Status badge */}
             <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2 bg-card/90 backdrop-blur-sm border border-blue-team/50 px-4 py-2 rounded-full">
-              <span className="w-2 h-2 rounded-full bg-blue-team animate-pulse-blue" />
-              <span className="text-sm font-mono text-blue-team">Open to Work</span>
+              <BookOpen className="w-4 h-4 text-blue-team" />
+              <span className="text-sm font-mono text-blue-team">Learning Journey</span>
             </div>
           </div>
 
@@ -52,10 +47,10 @@ const HeroSection = () => {
           <div className="text-center lg:text-left max-w-2xl">
             <div className="flex items-center justify-center lg:justify-start gap-3 mb-4 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
               <Shield className="w-5 h-5 text-blue-team" />
-              <span className="text-sm text-muted-foreground">Defensive Security</span>
+              <span className="text-sm text-muted-foreground">Aspiring Blue Team</span>
               <span className="text-muted-foreground/50">|</span>
               <Crosshair className="w-5 h-5 text-red-team" />
-              <span className="text-sm text-muted-foreground">Offensive Awareness</span>
+              <span className="text-sm text-muted-foreground">Red Team Curious</span>
             </div>
 
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-4 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
@@ -66,26 +61,26 @@ const HeroSection = () => {
 
             <div className="flex items-center justify-center lg:justify-start gap-3 mb-6 animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
               <h2 className="text-xl md:text-2xl font-semibold text-foreground/90">
-                Aspiring Cybersecurity Analyst
+                Cybersecurity Enthusiast
               </h2>
             </div>
 
             <div className="flex flex-wrap justify-center lg:justify-start gap-2 mb-8 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
               <span className="px-4 py-1.5 text-sm font-mono border border-blue-team/40 rounded-full text-blue-team bg-blue-team/5">
-                Blue Team
+                Learning Blue Team
               </span>
               <span className="px-4 py-1.5 text-sm font-mono border border-red-team/40 rounded-full text-red-team bg-red-team/5">
-                Red Team
+                Exploring Red Team
               </span>
               <span className="px-4 py-1.5 text-sm font-mono border border-border rounded-full text-muted-foreground bg-secondary/50">
-                GRC
+                GRC Basics
               </span>
             </div>
 
             <p className="text-muted-foreground text-lg mb-10 leading-relaxed animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
-              Transitioning into cybersecurity with expertise in both defensive (Blue Team) 
-              and offensive (Red Team) security concepts. Focused on threat detection, 
-              incident response, and security operations.
+              IT graduate passionate about cybersecurity. Currently learning the fundamentals 
+              of both defensive (Blue Team) and offensive (Red Team) security through 
+              self-study, labs, and hands-on practice.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
@@ -94,8 +89,8 @@ const HeroSection = () => {
                 className="bg-blue-team text-white hover:bg-blue-team/90 box-glow-blue font-semibold"
                 onClick={() => document.getElementById('skills')?.scrollIntoView({ behavior: 'smooth' })}
               >
-                <Shield className="w-4 h-4 mr-2" />
-                View Skills
+                <BookOpen className="w-4 h-4 mr-2" />
+                What I'm Learning
               </Button>
               <Button 
                 size="lg" 
@@ -104,7 +99,7 @@ const HeroSection = () => {
                 onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 <Crosshair className="w-4 h-4 mr-2" />
-                Contact Me
+                Connect With Me
               </Button>
             </div>
           </div>

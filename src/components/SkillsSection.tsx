@@ -1,28 +1,33 @@
-import { Shield, Crosshair } from "lucide-react";
+import { Shield, Crosshair, BookOpen } from "lucide-react";
 
 const SkillsSection = () => {
   const blueTeamSkills = [
-    { name: "Splunk", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/splunk/splunk-original-wordmark.svg" },
-    { name: "Elasticsearch", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/elasticsearch/elasticsearch-original.svg" },
-    { name: "Kibana", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/kibana/kibana-original.svg" },
-    { name: "Logstash", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/logstash/logstash-original.svg" },
-    { name: "Wireshark", icon: "https://upload.wikimedia.org/wikipedia/commons/d/df/Wireshark_icon.svg" },
+    { name: "Splunk", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/splunk/splunk-original-wordmark.svg", level: "Learning" },
+    { name: "ELK Stack", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/elasticsearch/elasticsearch-original.svg", level: "Learning" },
+    { name: "Wireshark", icon: "https://upload.wikimedia.org/wikipedia/commons/d/df/Wireshark_icon.svg", level: "Beginner" },
   ];
 
   const redTeamSkills = [
-    { name: "Kali Linux", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" },
-    { name: "Burp Suite", icon: "https://img.icons8.com/color/48/burp-suite.png" },
-    { name: "Metasploit", icon: "https://cdn.simpleicons.org/metasploit/2596CD" },
-    { name: "Nmap", icon: "https://nmap.org/images/nmap-logo-64.png" },
-    { name: "OWASP", icon: "https://owasp.org/assets/images/logo.png" },
+    { name: "Kali Linux", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg", level: "Exploring" },
+    { name: "Nmap", icon: "https://nmap.org/images/nmap-logo-64.png", level: "Learning" },
+    { name: "OWASP", icon: "https://owasp.org/assets/images/logo.png", level: "Studying" },
   ];
 
   const coreSkills = [
-    { name: "Python", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
-    { name: "Bash", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bash/bash-original.svg" },
-    { name: "Linux", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" },
-    { name: "PowerShell", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/powershell/powershell-original.svg" },
+    { name: "Python", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg", level: "Beginner" },
+    { name: "Bash", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bash/bash-original.svg", level: "Learning" },
+    { name: "Linux", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg", level: "Beginner" },
   ];
+
+  const SkillCard = ({ skill, hoverColor }: { skill: typeof blueTeamSkills[0], hoverColor: string }) => (
+    <div className={`group flex flex-col items-center p-4 rounded-lg bg-secondary/30 border border-border ${hoverColor} transition-all duration-300`}>
+      <div className="w-12 h-12 mb-3 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+        <img src={skill.icon} alt={skill.name} className="w-full h-full object-contain" />
+      </div>
+      <span className="text-sm font-medium text-foreground text-center mb-1">{skill.name}</span>
+      <span className="text-xs font-mono text-muted-foreground">{skill.level}</span>
+    </div>
+  );
 
   return (
     <section id="skills" className="py-24 bg-card/30 relative">
@@ -30,18 +35,18 @@ const SkillsSection = () => {
         <div className="text-center mb-16">
           <div className="flex items-center justify-center gap-2 mb-4">
             <span className="w-12 h-[1px] bg-gradient-to-r from-transparent to-primary" />
-            <span className="font-mono text-primary text-sm">ARSENAL</span>
+            <span className="font-mono text-primary text-sm">LEARNING</span>
             <span className="w-12 h-[1px] bg-gradient-to-l from-transparent to-primary" />
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Security <span className="text-blue-team">Tools</span> & <span className="text-red-team">Techniques</span>
+            Tools I'm <span className="text-blue-team">Studying</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Proficient in both defensive and offensive security tools for comprehensive security operations
+            Building my toolkit one step at a time. These are the tools I'm currently learning and practicing with.
           </p>
         </div>
 
-        <div className="max-w-5xl mx-auto space-y-12">
+        <div className="max-w-4xl mx-auto space-y-12">
           {/* Blue Team Skills */}
           <div>
             <div className="flex items-center gap-3 mb-6">
@@ -50,26 +55,12 @@ const SkillsSection = () => {
               </div>
               <div>
                 <h3 className="text-lg font-semibold text-foreground">Blue Team Tools</h3>
-                <p className="text-sm text-muted-foreground">SIEM, Log Analysis & Detection</p>
+                <p className="text-sm text-muted-foreground">SIEM & Log Analysis</p>
               </div>
             </div>
-            <div className="grid grid-cols-3 sm:grid-cols-5 gap-4">
-              {blueTeamSkills.map((skill, index) => (
-                <div
-                  key={skill.name}
-                  className="group flex flex-col items-center p-4 rounded-lg bg-secondary/30 border border-border hover:border-blue-team/50 hover:bg-blue-team/5 transition-all duration-300"
-                >
-                  <div className="w-12 h-12 mb-3 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <img
-                      src={skill.icon}
-                      alt={skill.name}
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
-                  <span className="text-xs font-mono text-muted-foreground group-hover:text-blue-team text-center transition-colors">
-                    {skill.name}
-                  </span>
-                </div>
+            <div className="grid grid-cols-3 gap-4">
+              {blueTeamSkills.map((skill) => (
+                <SkillCard key={skill.name} skill={skill} hoverColor="hover:border-blue-team/50 hover:bg-blue-team/5" />
               ))}
             </div>
           </div>
@@ -82,26 +73,12 @@ const SkillsSection = () => {
               </div>
               <div>
                 <h3 className="text-lg font-semibold text-foreground">Red Team Tools</h3>
-                <p className="text-sm text-muted-foreground">Penetration Testing & Exploitation</p>
+                <p className="text-sm text-muted-foreground">Penetration Testing Basics</p>
               </div>
             </div>
-            <div className="grid grid-cols-3 sm:grid-cols-5 gap-4">
-              {redTeamSkills.map((skill, index) => (
-                <div
-                  key={skill.name}
-                  className="group flex flex-col items-center p-4 rounded-lg bg-secondary/30 border border-border hover:border-red-team/50 hover:bg-red-team/5 transition-all duration-300"
-                >
-                  <div className="w-12 h-12 mb-3 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <img
-                      src={skill.icon}
-                      alt={skill.name}
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
-                  <span className="text-xs font-mono text-muted-foreground group-hover:text-red-team text-center transition-colors">
-                    {skill.name}
-                  </span>
-                </div>
+            <div className="grid grid-cols-3 gap-4">
+              {redTeamSkills.map((skill) => (
+                <SkillCard key={skill.name} skill={skill} hoverColor="hover:border-red-team/50 hover:bg-red-team/5" />
               ))}
             </div>
           </div>
@@ -110,34 +87,24 @@ const SkillsSection = () => {
           <div>
             <div className="flex items-center gap-3 mb-6">
               <div className="w-10 h-10 rounded-lg bg-primary/10 border border-primary/30 flex items-center justify-center">
-                <span className="text-primary font-mono text-sm">&gt;_</span>
+                <BookOpen className="w-5 h-5 text-primary" />
               </div>
               <div>
                 <h3 className="text-lg font-semibold text-foreground">Core Skills</h3>
-                <p className="text-sm text-muted-foreground">Scripting & Automation</p>
+                <p className="text-sm text-muted-foreground">Scripting & OS Fundamentals</p>
               </div>
             </div>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-              {coreSkills.map((skill, index) => (
-                <div
-                  key={skill.name}
-                  className="group flex flex-col items-center p-4 rounded-lg bg-secondary/30 border border-border hover:border-primary/50 hover:bg-primary/5 transition-all duration-300"
-                >
-                  <div className="w-12 h-12 mb-3 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                    <img
-                      src={skill.icon}
-                      alt={skill.name}
-                      className="w-full h-full object-contain"
-                    />
-                  </div>
-                  <span className="text-xs font-mono text-muted-foreground group-hover:text-primary text-center transition-colors">
-                    {skill.name}
-                  </span>
-                </div>
+            <div className="grid grid-cols-3 gap-4">
+              {coreSkills.map((skill) => (
+                <SkillCard key={skill.name} skill={skill} hoverColor="hover:border-primary/50 hover:bg-primary/5" />
               ))}
             </div>
           </div>
         </div>
+
+        <p className="text-center text-sm text-muted-foreground mt-12 font-mono max-w-xl mx-auto">
+          "Every expert was once a beginner." Currently focusing on building strong fundamentals before advancing.
+        </p>
       </div>
     </section>
   );
