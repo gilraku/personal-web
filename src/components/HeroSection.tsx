@@ -1,21 +1,130 @@
+import { useEffect, useRef, useState } from "react";
 import { ArrowRight } from "lucide-react";
 import profileImage from "@/assets/profile-anya.png";
 
 const HeroSection = () => {
+  const [transparentSrc, setTransparentSrc] = useState<string | null>(null);
+  const urlRef = useRef<string | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    const img = new Image();
+    img.src = profileImage;
+
+    img.onload = () => {
+      if (cancelled) return;
+
+      const canvas = document.createElement("canvas");
+      canvas.width = img.naturalWidth;
+      canvas.height = img.naturalHeight;
+
+      const ctx = canvas.getContext("2d", { willReadFrequently: true });
+      if (!ctx) return;
+
+      ctx.drawImage(img, 0, 0);
+
+      const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      const data = imageData.data;
+
+      // Detect checkerboard background colors from top-left patch
+      const counts = new Map<string, { r: number; g: number; b: number; count: number }>();
+      const sampleW = Math.min(80, canvas.width);
+      const sampleH = Math.min(80, canvas.height);
+      const step = 4;
+
+      const quant = (v: number) => Math.round(v / 16) * 16;
+
+      for (let y = 0; y < sampleH; y += step) {
+        for (let x = 0; x < sampleW; x += step) {
+          const i = (y * canvas.width + x) * 4;
+          const r = data[i];
+          const g = data[i + 1];
+          const b = data[i + 2];
+          const a = data[i + 3];
+          if (a < 250) continue;
+
+          const qr = quant(r);
+          const qg = quant(g);
+          const qb = quant(b);
+          const key = `${qr}-${qg}-${qb}`;
+          const prev = counts.get(key);
+          if (prev) prev.count += 1;
+          else counts.set(key, { r: qr, g: qg, b: qb, count: 1 });
+        }
+      }
+
+      const bgColors = Array.from(counts.values())
+        .sort((a, b) => b.count - a.count)
+        .slice(0, 2);
+
+      const dist = (r1: number, g1: number, b1: number, r2: number, g2: number, b2: number) => {
+        const dr = r1 - r2;
+        const dg = g1 - g2;
+        const db = b1 - b2;
+        return Math.sqrt(dr * dr + dg * dg + db * db);
+      };
+
+      // Remove background pixels close to detected checker colors
+      const hard = 22;
+      const soft = 40;
+
+      for (let i = 0; i < data.length; i += 4) {
+        const r = data[i];
+        const g = data[i + 1];
+        const b = data[i + 2];
+        const a = data[i + 3];
+        if (a < 250) continue;
+
+        const d0 = bgColors[0] ? dist(r, g, b, bgColors[0].r, bgColors[0].g, bgColors[0].b) : 999;
+        const d1 = bgColors[1] ? dist(r, g, b, bgColors[1].r, bgColors[1].g, bgColors[1].b) : 999;
+        const d = Math.min(d0, d1);
+
+        if (d <= hard) {
+          data[i + 3] = 0;
+        } else if (d < soft) {
+          // feather edge
+          const t = (d - hard) / (soft - hard);
+          data[i + 3] = Math.round(255 * t);
+        }
+      }
+
+      ctx.putImageData(imageData, 0, 0);
+
+      canvas.toBlob((blob) => {
+        if (!blob || cancelled) return;
+        const url = URL.createObjectURL(blob);
+
+        if (urlRef.current) URL.revokeObjectURL(urlRef.current);
+        urlRef.current = url;
+        setTransparentSrc(url);
+      }, "image/png");
+    };
+
+    return () => {
+      cancelled = true;
+      if (urlRef.current) {
+        URL.revokeObjectURL(urlRef.current);
+        urlRef.current = null;
+      }
+    };
+  }, []);
+
   return (
     <section className="min-h-screen flex items-center pt-16">
       <div className="container mx-auto px-6 py-20">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* Image - Asymmetric left side */}
           <div className="lg:col-span-5 order-2 lg:order-1">
-            <div 
+            <div
               className="relative animate-fade-in"
-              style={{ animationDelay: '0.2s', animationFillMode: 'both' }}
+              style={{ animationDelay: "0.2s", animationFillMode: "both" }}
             >
               <img
-                src={profileImage}
+                src={transparentSrc ?? profileImage}
                 alt="Gilang Swandaru"
                 className="w-full max-w-sm lg:max-w-none object-contain"
+                style={{ opacity: transparentSrc ? 1 : 0, transition: "opacity 300ms ease" }}
               />
               {/* Subtle accent line */}
               <div className="absolute -bottom-4 left-0 w-24 h-px bg-primary/40" />
@@ -25,38 +134,37 @@ const HeroSection = () => {
           {/* Content - Right side */}
           <div className="lg:col-span-7 order-1 lg:order-2 lg:pl-8">
             <div className="max-w-lg">
-              <h1 
+              <h1
                 className="font-display text-display-lg md:text-[5rem] lg:text-[6rem] font-normal text-foreground mb-6 animate-fade-in"
-                style={{ animationDelay: '0.3s', animationFillMode: 'both' }}
+                style={{ animationDelay: "0.3s", animationFillMode: "both" }}
               >
                 Gilang<br />
                 <span className="italic text-muted-foreground">Swandaru</span>
               </h1>
-              
-              <p 
+
+              <p
                 className="text-lg text-muted-foreground mb-8 max-w-md leading-relaxed animate-fade-in"
-                style={{ animationDelay: '0.5s', animationFillMode: 'both' }}
+                style={{ animationDelay: "0.5s", animationFillMode: "both" }}
               >
-                Exploring cybersecurity through hands-on practice. 
-                Learning defensive and offensive techniques daily.
+                Exploring cybersecurity through hands-on practice. Learning defensive and offensive techniques daily.
               </p>
 
-              <div 
+              <div
                 className="flex flex-col sm:flex-row gap-6 text-sm animate-fade-in"
-                style={{ animationDelay: '0.7s', animationFillMode: 'both' }}
+                style={{ animationDelay: "0.7s", animationFillMode: "both" }}
               >
                 <button
-                  onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
+                  onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
                   className="group inline-flex items-center gap-2 text-foreground hover-subtle"
                 >
                   <span className="link-underline">View my journey</span>
                   <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                 </button>
-                
+
                 <span className="hidden sm:block text-muted-foreground/30">|</span>
-                
+
                 <button
-                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                  onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
                   className="text-muted-foreground hover:text-foreground transition-colors duration-500"
                 >
                   Get in touch
