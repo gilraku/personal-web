@@ -1,104 +1,74 @@
-import { Mail, Linkedin, Github, Coffee, Flame, Trophy } from "lucide-react";
+import { Mail, Linkedin, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ScrollReveal from "@/components/ScrollReveal";
 
 const ContactSection = () => {
   const socials = [
     { 
+      icon: Mail, 
+      label: "Email", 
+      href: "mailto:gilangswandaru@gmail.com",
+      username: "gilangswandaru@gmail.com"
+    },
+    { 
       icon: Linkedin, 
       label: "LinkedIn", 
       href: "https://www.linkedin.com/in/gilang-swandaru/",
+      username: "gilang-swandaru"
     },
     { 
       icon: Github, 
       label: "GitHub", 
       href: "https://github.com/glng-swndru",
-    },
-    { 
-      icon: Mail, 
-      label: "Email", 
-      href: "mailto:gilangswandaru@gmail.com",
-    },
-    { 
-      icon: Flame, 
-      label: "TryHackMe", 
-      href: "https://tryhackme.com/p/GSec",
-    },
-    { 
-      icon: Trophy, 
-      label: "LetsDefend", 
-      href: "https://app.letsdefend.io/user/gilang",
+      username: "glng-swndru"
     },
   ];
 
   return (
-    <section id="contact" className="py-24 relative">
+    <section id="contact" className="py-24">
       <div className="container mx-auto px-6">
-        <div className="max-w-2xl mx-auto text-center">
+        <div className="max-w-xl mx-auto text-center">
           <ScrollReveal>
-            <div className="flex items-center justify-center gap-2 mb-4">
-              <span className="w-12 h-[1px] bg-gradient-to-r from-transparent to-primary" />
-              <span className="font-mono text-primary text-sm">CONNECT</span>
-              <span className="w-12 h-[1px] bg-gradient-to-l from-transparent to-primary" />
-            </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-              Let's <span className="text-blue-team">Connect</span>
+            <p className="text-sm text-primary font-medium mb-3">Contact</p>
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Let's Connect
             </h2>
-            <p className="text-muted-foreground text-lg mb-10">
-              Fellow learner? Experienced professional? Let's connect and grow together in the security community!
+            <p className="text-muted-foreground mb-10">
+              Interested in cybersecurity or just want to say hello? 
+              I'm always open to connecting with fellow learners and professionals.
             </p>
           </ScrollReveal>
 
           <ScrollReveal delay={100}>
-            <div className="flex flex-wrap justify-center gap-4 mb-12">
-              {socials.map((social, index) => (
-                <ScrollReveal key={social.label} delay={150 + index * 50}>
-                  <Button
-                    variant="outline"
-                    size="lg"
-                    className="border-border bg-card/50 text-muted-foreground hover:text-primary hover:border-primary/50 transition-all"
-                    asChild
-                  >
-                    <a href={social.href} target="_blank" rel="noopener noreferrer">
-                      <social.icon className="w-5 h-5 mr-2" />
-                      {social.label}
-                    </a>
-                  </Button>
-                </ScrollReveal>
+            <div className="space-y-3">
+              {socials.map((social) => (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-4 p-4 rounded-xl border border-border bg-card hover:border-primary/50 transition-all group hover-lift"
+                >
+                  <div className="w-10 h-10 rounded-lg bg-secondary flex items-center justify-center group-hover:bg-primary/10 transition-colors">
+                    <social.icon className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
+                  </div>
+                  <div className="text-left">
+                    <p className="text-sm font-medium text-foreground">{social.label}</p>
+                    <p className="text-xs text-muted-foreground">{social.username}</p>
+                  </div>
+                </a>
               ))}
             </div>
           </ScrollReveal>
 
-          {/* Terminal */}
-          <ScrollReveal delay={300}>
-            <div className="bg-card border border-border rounded-lg overflow-hidden">
-              <div className="flex items-center gap-2 px-4 py-3 border-b border-border bg-secondary/30">
-                <span className="w-3 h-3 rounded-full bg-red-team/80" />
-                <span className="w-3 h-3 rounded-full bg-yellow-500/80" />
-                <span className="w-3 h-3 rounded-full bg-blue-team/80" />
-                <span className="ml-2 text-muted-foreground text-xs font-mono">gsec@security:~$</span>
-              </div>
-              <div className="p-6 font-mono text-sm text-left space-y-3">
-                <div className="flex items-center gap-2">
-                  <Flame className="w-4 h-4 text-red-team" />
-                  <span className="text-muted-foreground">TryHackMe:</span>
-                  <span className="text-red-team">Top 8% | 84 Rooms</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Trophy className="w-4 h-4 text-blue-team" />
-                  <span className="text-muted-foreground">LetsDefend:</span>
-                  <span className="text-blue-team">1433 Points | 100% Success</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Coffee className="w-4 h-4 text-primary" />
-                  <span className="text-muted-foreground">Status:</span>
-                  <span className="text-primary animate-pulse">Always learning...</span>
-                </div>
-                <div className="flex items-center text-muted-foreground">
-                  <span>$</span>
-                  <span className="ml-1 w-2 h-4 bg-primary animate-pulse" />
-                </div>
-              </div>
+          <ScrollReveal delay={200}>
+            <div className="mt-12 pt-12 border-t border-border">
+              <Button size="lg" asChild>
+                <a href="mailto:gilangswandaru@gmail.com">
+                  <Mail className="w-4 h-4 mr-2" />
+                  Send Me an Email
+                </a>
+              </Button>
             </div>
           </ScrollReveal>
         </div>
