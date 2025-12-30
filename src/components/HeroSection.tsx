@@ -124,7 +124,11 @@ const HeroSection = () => {
                 src={transparentSrc ?? profileImage}
                 alt="Gilang Swandaru"
                 className="w-full max-w-sm lg:max-w-none object-contain"
-                style={{ opacity: transparentSrc ? 1 : 0, transition: "opacity 300ms ease" }}
+                style={{ 
+                  opacity: transparentSrc ? 1 : 0, 
+                  transition: "opacity 300ms ease",
+                  filter: "drop-shadow(0 8px 24px hsl(30 10% 18% / 0.12)) drop-shadow(0 2px 6px hsl(30 10% 18% / 0.08))"
+                }}
               />
               {/* Subtle accent line */}
               <div className="absolute -bottom-4 left-0 w-24 h-px bg-primary/40" />
