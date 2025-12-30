@@ -9,13 +9,25 @@ export default {
       center: true,
       padding: "2rem",
       screens: {
-        "2xl": "1200px",
+        "2xl": "1100px",
       },
     },
     extend: {
       fontFamily: {
-        sans: ["Inter", "sans-serif"],
-        display: ["Sora", "sans-serif"],
+        sans: ["DM Sans", "sans-serif"],
+        display: ["Cormorant Garamond", "serif"],
+        mono: ["JetBrains Mono", "monospace"],
+      },
+      fontSize: {
+        'display-lg': ['4rem', { lineHeight: '1.1', letterSpacing: '-0.02em' }],
+        'display-md': ['3rem', { lineHeight: '1.15', letterSpacing: '-0.01em' }],
+        'display-sm': ['2rem', { lineHeight: '1.2', letterSpacing: '-0.01em' }],
+      },
+      spacing: {
+        '18': '4.5rem',
+        '22': '5.5rem',
+        '30': '7.5rem',
+        '36': '9rem',
       },
       colors: {
         border: "hsl(var(--border))",

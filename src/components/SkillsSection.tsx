@@ -1,56 +1,59 @@
 import ScrollReveal from "@/components/ScrollReveal";
 
 const SkillsSection = () => {
-  const skills = [
-    { name: "Splunk", category: "SIEM" },
-    { name: "ELK Stack", category: "SIEM" },
-    { name: "Wireshark", category: "Network" },
-    { name: "Kali Linux", category: "OS" },
-    { name: "Nmap", category: "Scanning" },
-    { name: "OWASP", category: "Web Security" },
-    { name: "Python", category: "Scripting" },
-    { name: "Bash", category: "Scripting" },
-    { name: "Linux", category: "OS" },
-    { name: "MITRE ATT&CK", category: "Framework" },
-    { name: "Incident Response", category: "Blue Team" },
-    { name: "Log Analysis", category: "Blue Team" },
+  const skillGroups = [
+    {
+      category: "SIEM & Monitoring",
+      skills: ["Splunk", "ELK Stack", "Log Analysis"]
+    },
+    {
+      category: "Network & Analysis",
+      skills: ["Wireshark", "Nmap", "tcpdump"]
+    },
+    {
+      category: "Systems & Scripting",
+      skills: ["Linux", "Kali Linux", "Python", "Bash"]
+    },
+    {
+      category: "Frameworks",
+      skills: ["MITRE ATT&CK", "OWASP", "Incident Response"]
+    }
   ];
 
   return (
-    <section id="skills" className="py-24 bg-secondary/30">
+    <section id="skills" className="py-36 border-t border-border">
       <div className="container mx-auto px-6">
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-2xl">
           <ScrollReveal>
-            <div className="text-center mb-12">
-              <p className="text-sm text-primary font-medium mb-3">Skills</p>
-              <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
-                Tools & Technologies
-              </h2>
-              <p className="text-muted-foreground">
-                Building my toolkit through hands-on practice and continuous learning.
-              </p>
-            </div>
+            <p className="font-mono text-xs text-muted-foreground tracking-widest uppercase mb-8">
+              Skills
+            </p>
           </ScrollReveal>
 
           <ScrollReveal delay={100}>
-            <div className="flex flex-wrap justify-center gap-3">
-              {skills.map((skill, index) => (
-                <div
-                  key={skill.name}
-                  className="group px-4 py-2 rounded-full border border-border bg-background hover:border-primary/50 hover:bg-primary/5 transition-all duration-300 cursor-default"
-                  style={{ animationDelay: `${index * 50}ms` }}
-                >
-                  <span className="text-sm text-foreground group-hover:text-primary transition-colors">
-                    {skill.name}
-                  </span>
-                </div>
-              ))}
-            </div>
+            <h2 className="font-display text-display-sm md:text-display-md font-normal text-foreground mb-16">
+              Tools & technologies
+            </h2>
           </ScrollReveal>
 
-          <ScrollReveal delay={200}>
-            <p className="text-center text-sm text-muted-foreground mt-10">
-              Currently focused on building strong fundamentals before advancing.
+          <div className="space-y-12">
+            {skillGroups.map((group, index) => (
+              <ScrollReveal key={group.category} delay={150 + index * 50}>
+                <div className="grid grid-cols-12 gap-4">
+                  <p className="col-span-12 md:col-span-4 text-sm text-muted-foreground">
+                    {group.category}
+                  </p>
+                  <p className="col-span-12 md:col-span-8 font-mono text-sm text-foreground">
+                    {group.skills.join(", ")}
+                  </p>
+                </div>
+              </ScrollReveal>
+            ))}
+          </div>
+
+          <ScrollReveal delay={400}>
+            <p className="mt-16 text-sm text-muted-foreground italic">
+              Building strong fundamentals through continuous practice.
             </p>
           </ScrollReveal>
         </div>
