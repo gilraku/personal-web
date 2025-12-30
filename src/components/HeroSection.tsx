@@ -15,10 +15,7 @@ const HeroSection = () => {
               <img
                 src={profileImage}
                 alt="Gilang Swandaru"
-                className="w-full max-w-sm lg:max-w-none aspect-[4/5] object-cover grayscale-[20%] contrast-[1.05]"
-                style={{ 
-                  clipPath: 'polygon(0 0, 100% 0, 100% 95%, 0 100%)'
-                }}
+                className="w-full max-w-sm lg:max-w-none object-contain"
               />
               {/* Subtle accent line */}
               <div className="absolute -bottom-4 left-0 w-24 h-px bg-primary/40" />
