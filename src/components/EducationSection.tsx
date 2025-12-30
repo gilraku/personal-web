@@ -1,4 +1,3 @@
-import { GraduationCap, ExternalLink, Trophy, Flame } from "lucide-react";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import ScrollReveal from "@/components/ScrollReveal";
 import { useInView } from "@/hooks/useInView";
@@ -9,69 +8,69 @@ const EducationSection = () => {
   const platforms = [
     {
       name: "TryHackMe",
-      username: "GSec",
+      username: "@GSec",
       link: "https://tryhackme.com/p/GSec",
-      icon: Flame,
       stats: [
-        { label: "Rank", value: "Top 8%" },
+        { label: "Rank", value: "Top 8%", isNumber: false },
         { label: "Rooms", value: 84, isNumber: true },
         { label: "Badges", value: 11, isNumber: true },
       ]
     },
     {
       name: "LetsDefend",
-      username: "gilang",
+      username: "@gilang",
       link: "https://app.letsdefend.io/user/gilang",
-      icon: Trophy,
       stats: [
         { label: "Points", value: 1433, isNumber: true },
         { label: "Success", value: 100, isNumber: true, suffix: "%" },
-        { label: "Status", value: "VIP+" },
+        { label: "Status", value: "VIP+", isNumber: false },
       ]
     }
   ];
 
   return (
-    <section id="education" className="py-24 bg-secondary/30">
+    <section id="education" className="py-36 border-t border-border">
       <div className="container mx-auto px-6">
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-4xl">
           <ScrollReveal>
-            <div className="text-center mb-12">
-              <p className="text-sm text-primary font-medium mb-3">Progress</p>
-              <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">
-                Learning Platforms
-              </h2>
-            </div>
+            <p className="font-mono text-xs text-muted-foreground tracking-widest uppercase mb-8">
+              Progress
+            </p>
           </ScrollReveal>
 
-          <div ref={statsRef} className="grid md:grid-cols-2 gap-6 mb-12">
+          <ScrollReveal delay={100}>
+            <h2 className="font-display text-display-sm md:text-display-md font-normal text-foreground mb-16">
+              Learning journey
+            </h2>
+          </ScrollReveal>
+
+          {/* Platform stats - Timeline style */}
+          <div ref={statsRef} className="space-y-16 mb-24">
             {platforms.map((platform, index) => (
-              <ScrollReveal key={platform.name} delay={100 + index * 100}>
-                <div className="p-6 rounded-xl border border-border bg-card hover-lift">
-                  <div className="flex items-center justify-between mb-6">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                        <platform.icon className="w-5 h-5 text-primary" />
-                      </div>
-                      <div>
-                        <h3 className="font-display font-semibold text-foreground">{platform.name}</h3>
-                        <p className="text-xs text-muted-foreground">@{platform.username}</p>
-                      </div>
-                    </div>
+              <ScrollReveal key={platform.name} delay={150 + index * 100}>
+                <div className="grid grid-cols-12 gap-4 md:gap-8">
+                  {/* Platform name */}
+                  <div className="col-span-12 md:col-span-3">
                     <a 
-                      href={platform.link} 
-                      target="_blank" 
+                      href={platform.link}
+                      target="_blank"
                       rel="noopener noreferrer"
-                      className="text-muted-foreground hover:text-primary transition-colors"
+                      className="group"
                     >
-                      <ExternalLink className="w-4 h-4" />
+                      <p className="font-display text-lg text-foreground group-hover:text-primary transition-colors duration-500">
+                        {platform.name}
+                      </p>
+                      <p className="font-mono text-xs text-muted-foreground">
+                        {platform.username}
+                      </p>
                     </a>
                   </div>
 
-                  <div className="grid grid-cols-3 gap-4">
+                  {/* Stats - Large numbers */}
+                  <div className="col-span-12 md:col-span-9 grid grid-cols-3 gap-8">
                     {platform.stats.map((stat) => (
-                      <div key={stat.label} className="text-center">
-                        <p className="font-display font-bold text-lg text-foreground">
+                      <div key={stat.label}>
+                        <p className="font-display text-3xl md:text-4xl text-foreground">
                           {stat.isNumber ? (
                             <AnimatedCounter 
                               end={stat.value as number} 
@@ -83,7 +82,7 @@ const EducationSection = () => {
                             stat.value
                           )}
                         </p>
-                        <p className="text-xs text-muted-foreground">{stat.label}</p>
+                        <p className="text-xs text-muted-foreground mt-1">{stat.label}</p>
                       </div>
                     ))}
                   </div>
@@ -92,16 +91,22 @@ const EducationSection = () => {
             ))}
           </div>
 
-          <ScrollReveal delay={200}>
-            <div className="p-6 rounded-xl border border-border bg-card hover-lift">
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <GraduationCap className="w-5 h-5 text-primary" />
+          {/* Education */}
+          <ScrollReveal delay={300}>
+            <div className="border-t border-border pt-12">
+              <div className="grid grid-cols-12 gap-4 md:gap-8">
+                <div className="col-span-12 md:col-span-3">
+                  <p className="font-mono text-xs text-muted-foreground tracking-widest uppercase">
+                    Education
+                  </p>
                 </div>
-                <div>
-                  <h3 className="font-display font-semibold text-foreground mb-1">Education</h3>
-                  <p className="text-foreground">Institut Teknologi Sapta Mandiri</p>
-                  <p className="text-sm text-muted-foreground">Bachelor of Information Technology • 2019 - 2023</p>
+                <div className="col-span-12 md:col-span-9">
+                  <p className="font-display text-lg text-foreground">
+                    Institut Teknologi Sapta Mandiri
+                  </p>
+                  <p className="text-sm text-muted-foreground mt-1">
+                    Bachelor of Information Technology · 2019 — 2023
+                  </p>
                 </div>
               </div>
             </div>
