@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { ArrowRight } from "lucide-react";
 import profileImage from "@/assets/profile-anya.png";
+import anyaSticker from "@/assets/anya-sticker.jpeg";
 
 const HeroSection = () => {
   const [transparentSrc, setTransparentSrc] = useState<string | null>(null);
@@ -114,8 +115,8 @@ const HeroSection = () => {
     <section className="min-h-screen flex items-center pt-16">
       <div className="container mx-auto px-6 py-20">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-          {/* Image - Asymmetric left side */}
-          <div className="lg:col-span-5 order-2 lg:order-1">
+          {/* Image - Asymmetric left side (hidden on mobile) */}
+          <div className="lg:col-span-5 order-2 lg:order-1 hidden lg:block">
             <div className="relative animate-float">
               <img
                 src={transparentSrc ?? profileImage}
@@ -135,13 +136,22 @@ const HeroSection = () => {
           {/* Content - Right side */}
           <div className="lg:col-span-7 order-1 lg:order-2 lg:pl-8">
             <div className="max-w-lg">
-              <h1
-                className="font-display text-display-lg md:text-[5rem] lg:text-[6rem] font-normal text-foreground mb-6 animate-fade-in"
-                style={{ animationDelay: "0.3s", animationFillMode: "both" }}
-              >
-                Gilang<br />
-                <span className="italic text-muted-foreground">Swandaru</span>
-              </h1>
+              <div className="flex items-start gap-4 mb-6">
+                <h1
+                  className="font-display text-display-lg md:text-[5rem] lg:text-[6rem] font-normal text-foreground animate-fade-in"
+                  style={{ animationDelay: "0.3s", animationFillMode: "both" }}
+                >
+                  Gilang<br />
+                  <span className="italic text-muted-foreground">Swandaru</span>
+                </h1>
+                
+                {/* Anya sticker - mobile only */}
+                <img 
+                  src={anyaSticker}
+                  alt="Anya"
+                  className="lg:hidden w-16 h-16 sm:w-20 sm:h-20 object-contain animate-float rounded-lg mt-2"
+                />
+              </div>
 
               <p
                 className="text-lg text-muted-foreground mb-8 max-w-md leading-relaxed animate-fade-in"
