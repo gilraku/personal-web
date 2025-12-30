@@ -116,10 +116,7 @@ const HeroSection = () => {
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           {/* Image - Asymmetric left side */}
           <div className="lg:col-span-5 order-2 lg:order-1">
-            <div
-              className="relative animate-fade-in"
-              style={{ animationDelay: "0.2s", animationFillMode: "both" }}
-            >
+            <div className="relative animate-float">
               <img
                 src={transparentSrc ?? profileImage}
                 alt="Gilang Swandaru"
