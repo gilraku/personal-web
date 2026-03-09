@@ -3,20 +3,20 @@ import ScrollReveal from "@/components/ScrollReveal";
 const SkillsSection = () => {
   const skillGroups = [
     {
-      category: "SIEM & Monitoring",
-      skills: ["Splunk", "ELK Stack", "Log Analysis"]
+      category: "Compliance & GRC",
+      skills: ["Regulatory Evaluation", "Environmental Compliance", "Audit Administration"]
     },
     {
-      category: "Network & Analysis",
-      skills: ["Wireshark", "Nmap", "tcpdump"]
+      category: "Cloud & Infrastructure",
+      skills: ["Google Cloud Platform", "AWS Basics", "Linux", "Windows"]
     },
     {
-      category: "Systems & Scripting",
-      skills: ["Linux", "Kali Linux", "Python", "Bash"]
+      category: "Security & Monitoring",
+      skills: ["Splunk", "Log Analysis", "Incident Response Basics", "Network Analysis"]
     },
     {
-      category: "Frameworks",
-      skills: ["MITRE ATT&CK", "OWASP", "Incident Response"]
+      category: "Digital & Data",
+      skills: ["Spreadsheet Processing", "Cloud Documentation", "Process Optimization", "Microsoft 365"]
     }
   ];
 

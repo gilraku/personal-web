@@ -13,20 +13,19 @@ const AboutSection = () => {
 
           <ScrollReveal delay={100}>
             <h2 className="font-display text-display-sm md:text-display-md font-normal text-foreground mb-10">
-              Passionate about understanding <span className="italic">how systems break</span>—and how to defend them.
+              From <span className="italic">Regulatory Compliance</span> to <span className="italic">Cyber Defense</span>.
             </h2>
           </ScrollReveal>
 
           <ScrollReveal delay={200}>
             <div className="border-accent-left space-y-6 text-muted-foreground leading-relaxed">
               <p>
-                I'm an IT graduate at the beginning of my cybersecurity journey. 
-                My approach is simple: learn by doing. Building home labs, solving CTF challenges, 
-                and expanding my knowledge of both defensive and offensive security.
+                I am a career switcher with a solid foundation in operations, logistics, and regulatory compliance.
+                Currently working in Environmental Sustainability compliance, I specialize in extracting, mapping, and summarizing regulations—a skill that directly translates to <strong>Governance, Risk, and Compliance (GRC)</strong>.
               </p>
               <p>
-                Currently focused on Blue Team operations, GRC frameworks, and continuous learning 
-                through platforms like TryHackMe and LetsDefend.
+                My administrative and documentation background ensures precision and audit-readiness. Now, I am directing this analytical mindset towards Cybersecurity.
+                I actively build home labs, conduct network traffic analysis, and participate in realistic SOC simulations.
               </p>
             </div>
           </ScrollReveal>
@@ -34,10 +33,10 @@ const AboutSection = () => {
           <ScrollReveal delay={300}>
             <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8">
               {[
-                { label: 'Blue Team', desc: 'Threat detection & response' },
-                { label: 'Red Team', desc: 'Offensive techniques' },
-                { label: 'GRC', desc: 'Governance & compliance' },
-                { label: 'Learning', desc: 'Daily practice' },
+                { label: 'Security Ops', desc: 'Threat detection & SIEM' },
+                { label: 'GRC', desc: 'Compliance & audit readiness' },
+                { label: 'Cloud Tech', desc: 'AWS & GCP fundamentals' },
+                { label: 'Documentation', desc: 'Technical & process writing' },
               ].map((item) => (
                 <div key={item.label} className="group">
                   <p className="font-display text-lg text-foreground mb-1">{item.label}</p>

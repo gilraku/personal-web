@@ -2,20 +2,20 @@ import ScrollReveal from "@/components/ScrollReveal";
 
 const ContactSection = () => {
   const socials = [
-    { 
-      label: "Email", 
-      href: "mailto:gilangswandaru@gmail.com",
-      display: "gilangswandaru@gmail.com"
+    {
+      label: "Email",
+      href: "mailto:gilangswandaru27@gmail.com",
+      display: "gilangswandaru27@gmail.com"
     },
-    { 
-      label: "LinkedIn", 
+    {
+      label: "LinkedIn",
       href: "https://www.linkedin.com/in/gilang-swandaru/",
       display: "gilang-swandaru"
     },
-    { 
-      label: "GitHub", 
-      href: "https://github.com/glng-swndru",
-      display: "glng-swndru"
+    {
+      label: "GitHub",
+      href: "https://github.com/gilraku",
+      display: "gilraku"
     },
   ];
 
@@ -37,7 +37,7 @@ const ContactSection = () => {
 
           <ScrollReveal delay={200}>
             <p className="text-muted-foreground leading-relaxed mb-12 max-w-lg">
-              Interested in cybersecurity or just want to say hello? 
+              Interested in cybersecurity or just want to say hello?
               I'm always open to connecting with fellow learners and professionals.
             </p>
           </ScrollReveal>
@@ -65,7 +65,7 @@ const ContactSection = () => {
           <ScrollReveal delay={400}>
             <div className="mt-16">
               <a
-                href="mailto:gilangswandaru@gmail.com"
+                href="mailto:gilangswandaru27@gmail.com"
                 className="group inline-flex items-center gap-2 text-foreground"
               >
                 <span className="link-underline font-display text-lg">Send me an email</span>

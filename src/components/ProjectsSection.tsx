@@ -4,34 +4,29 @@ import ScrollReveal from "@/components/ScrollReveal";
 const ProjectsSection = () => {
   const projects = [
     {
-      title: "TryHackMe Labs",
+      title: "TryHackMe Profile",
       description: "Penetration testing, Linux fundamentals, and web exploitation through hands-on rooms.",
-      stat: "84",
-      statLabel: "Rooms",
+      stat: "THM",
+      statLabel: "Active Learning",
       link: "https://tryhackme.com/p/GSec",
       featured: true
     },
     {
-      title: "LetsDefend SOC",
-      description: "Blue team training with 100% success rate. Investigating malware, ransomware, and web attacks.",
-      stat: "1433",
-      statLabel: "Points",
+      title: "LetsDefend Profile",
+      description: "Blue team training and incident response. Investigating malware, ransomware, and web attacks.",
+      stat: "SOC",
+      statLabel: "Active Learning",
       link: "https://app.letsdefend.io/user/gilang",
       featured: true
     },
+
     {
-      title: "Network Traffic Analysis",
-      description: "Practicing network forensics by analyzing pcap files and identifying malicious patterns.",
+      title: "Splunk SIEM Home Lab",
+      description: "Building a home lab for Linux log collection, parsing, and threat hunting using Splunk.",
       stat: "—",
-      statLabel: "Learning",
-      featured: false
-    },
-    {
-      title: "Home SIEM Lab",
-      description: "Building a home lab for log collection, parsing, and threat detection using open-source tools.",
-      stat: "—",
-      statLabel: "In Progress",
-      featured: false
+      statLabel: "Documented",
+      link: "https://github.com/gilraku/Splunk-SIEM-Linux-Detection",
+      featured: true
     }
   ];
 
@@ -51,57 +46,45 @@ const ProjectsSection = () => {
             </h2>
           </ScrollReveal>
 
-          {/* Staggered layout */}
-          <div className="space-y-0">
+          {/* Card Grid Layout */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
             {projects.map((project, index) => (
               <ScrollReveal key={project.title} delay={150 + index * 75}>
-                <div 
-                  className={`group grid grid-cols-12 gap-4 py-8 border-b border-border/50 ${
-                    project.featured ? '' : 'opacity-70'
-                  }`}
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`group flex flex-col h-full bg-card/50 hover:bg-card border border-border/50 hover:border-primary/50 transition-all duration-300 p-8 rounded-2xl relative overflow-hidden block ${project.featured ? '' : 'opacity-70'
+                    }`}
                 >
-                  {/* Stat - Large typography */}
-                  <div className="col-span-3 md:col-span-2">
-                    <span className="font-display text-3xl md:text-4xl text-foreground">
-                      {project.stat}
-                    </span>
-                    <p className="text-xs text-muted-foreground mt-1">{project.statLabel}</p>
+                  {/* Hover Gradient Background */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                  {/* Top Header: Stat/Category & Icon */}
+                  <div className="flex justify-between items-start mb-6 relative z-10">
+                    <div>
+                      <span className="font-mono text-xs font-semibold text-primary tracking-wider uppercase bg-primary/10 px-3 py-1 rounded-full">
+                        {project.stat}
+                      </span>
+                      <p className="text-xs text-muted-foreground mt-2 font-mono uppercase tracking-wide">
+                        {project.statLabel}
+                      </p>
+                    </div>
+                    <div className="bg-background/80 backdrop-blur-sm p-3 rounded-full border border-border/50 group-hover:border-primary/30 group-hover:bg-primary/10 transition-colors duration-300">
+                      <ArrowUpRight className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
+                    </div>
                   </div>
 
                   {/* Content */}
-                  <div className="col-span-9 md:col-span-8">
-                    <h3 className="font-display text-xl text-foreground mb-2 flex items-center gap-2">
+                  <div className="relative z-10 flex-grow mt-auto pt-8">
+                    <h3 className="font-display text-2xl text-foreground mb-3 group-hover:text-primary transition-colors">
                       {project.title}
-                      {project.link && (
-                        <a 
-                          href={project.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                        >
-                          <ArrowUpRight className="w-4 h-4 text-muted-foreground" />
-                        </a>
-                      )}
                     </h3>
                     <p className="text-sm text-muted-foreground leading-relaxed">
                       {project.description}
                     </p>
                   </div>
-
-                  {/* Link for mobile */}
-                  {project.link && (
-                    <div className="col-span-12 md:col-span-2 flex md:justify-end items-start">
-                      <a 
-                        href={project.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-xs text-muted-foreground hover:text-foreground transition-colors md:hidden"
-                      >
-                        View →
-                      </a>
-                    </div>
-                  )}
-                </div>
+                </a>
               </ScrollReveal>
             ))}
           </div>

@@ -122,8 +122,8 @@ const HeroSection = () => {
                 src={transparentSrc ?? profileImage}
                 alt="Gilang Swandaru"
                 className="w-full max-w-sm lg:max-w-none object-contain"
-                style={{ 
-                  opacity: transparentSrc ? 1 : 0, 
+                style={{
+                  opacity: transparentSrc ? 1 : 0,
                   transition: "opacity 300ms ease",
                   filter: "drop-shadow(0 8px 24px hsl(30 10% 18% / 0.12)) drop-shadow(0 2px 6px hsl(30 10% 18% / 0.08))"
                 }}
@@ -144,9 +144,9 @@ const HeroSection = () => {
                   Gilang<br />
                   <span className="italic text-muted-foreground">Swandaru</span>
                 </h1>
-                
+
                 {/* Anya sticker - mobile only */}
-                <img 
+                <img
                   src={anyaSticker}
                   alt="Anya"
                   className="lg:hidden w-16 h-16 sm:w-20 sm:h-20 object-contain animate-float rounded-lg mt-2"
@@ -157,7 +157,8 @@ const HeroSection = () => {
                 className="text-lg text-muted-foreground mb-8 max-w-md leading-relaxed animate-fade-in"
                 style={{ animationDelay: "0.5s", animationFillMode: "both" }}
               >
-                Exploring cybersecurity through hands-on practice. Learning defensive and offensive techniques daily.
+                Transitioning from Regulatory Compliance & Ops into Cybersecurity.
+                Passionate about Blue Team Operations, GRC, and Security Monitoring.
               </p>
 
               <div
