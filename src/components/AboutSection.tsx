@@ -24,8 +24,10 @@ const AboutSection = () => {
                 Currently working in Environmental Sustainability compliance, I specialize in extracting, mapping, and summarizing regulations—a skill that directly translates to <strong>Governance, Risk, and Compliance (GRC)</strong>.
               </p>
               <p>
-                My administrative and documentation background ensures precision and audit-readiness. Now, I am directing this analytical mindset towards Cybersecurity.
-                I build home labs, conduct malware analysis, and document findings through structured investigation reports — all mapped to the MITRE ATT&CK framework.
+                My administrative and documentation background ensures precision and audit-readiness. I approach cybersecurity from two angles — the technical and the regulatory.
+              </p>
+              <p>
+                On the technical side, I build SIEM home labs, conduct malware analysis, and document findings mapped to MITRE ATT&CK. On the compliance side, I work daily with environmental regulations, audit documentation, and control evaluation at a mining operation. I believe effective security requires both.
               </p>
             </div>
           </ScrollReveal>
