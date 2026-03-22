@@ -23,8 +23,8 @@ const ProjectsSection = () => {
     {
       title: "Splunk SIEM Home Lab",
       description: "Built a Splunk SIEM on Linux to detect SSH brute force, privilege escalation, and persistence. Mapped to MITRE ATT&CK. Includes SPL queries, SOC dashboard, and triage report.",
-      stat: "—",
-      statLabel: "Completed",
+      stat: "SIEM",
+      statLabel: "Documented",
       link: "https://github.com/gilraku/Splunk-SIEM-Linux-Detection",
       featured: true
     },
