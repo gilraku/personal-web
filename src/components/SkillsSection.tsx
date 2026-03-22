@@ -8,11 +8,11 @@ const SkillsSection = () => {
     },
     {
       category: "Cloud & Infrastructure",
-      skills: ["Google Cloud Platform", "AWS Basics", "Linux", "Windows"]
+      skills: ["Google Cloud Platform", "AWS (Certified)", "Linux", "Windows"]
     },
     {
       category: "Security & Monitoring",
-      skills: ["Splunk", "Log Analysis", "Incident Response Basics", "Network Analysis"]
+      skills: ["Splunk", "Wireshark", "MITRE ATT&CK", "Malware Analysis (static & dynamic)", "Incident Response", "Log Analysis", "Network Analysis"]
     },
     {
       category: "Digital & Data",

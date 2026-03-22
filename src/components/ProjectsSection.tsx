@@ -5,7 +5,7 @@ const ProjectsSection = () => {
   const projects = [
     {
       title: "TryHackMe Profile",
-      description: "Penetration testing, Linux fundamentals, and web exploitation through hands-on rooms.",
+      description: "Blue team labs covering SOC Level 1, incident response, and threat detection.",
       stat: "THM",
       statLabel: "Active Learning",
       link: "https://tryhackme.com/p/GSec",
@@ -22,10 +22,18 @@ const ProjectsSection = () => {
 
     {
       title: "Splunk SIEM Home Lab",
-      description: "Building a home lab for Linux log collection, parsing, and threat hunting using Splunk.",
+      description: "Built a Splunk SIEM on Linux to detect SSH brute force, privilege escalation, and persistence. Mapped to MITRE ATT&CK. Includes SPL queries, SOC dashboard, and triage report.",
       stat: "—",
-      statLabel: "Documented",
+      statLabel: "Completed",
       link: "https://github.com/gilraku/Splunk-SIEM-Linux-Detection",
+      featured: true
+    },
+    {
+      title: "Malware Analysis: AZORult / Loki / FormBook",
+      description: "Static and dynamic analysis of a MSIL banking stealer. Tools: PEStudio, Procmon, Wireshark, Regshot, ANY.RUN. Mapped to 20 MITRE ATT&CK techniques.",
+      stat: "MAL",
+      statLabel: "Documented",
+      link: "https://github.com/gilraku/malware-analysis-azorult",
       featured: true
     }
   ];

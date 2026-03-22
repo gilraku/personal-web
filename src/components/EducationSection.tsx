@@ -67,6 +67,14 @@ const EducationSection = () => {
                     <span className="font-display text-lg text-foreground">Cloud Computing Cohort</span>
                     <span className="text-sm text-muted-foreground">Bangkit Academy · 2023</span>
                   </li>
+                  <li className="flex flex-col">
+                    <span className="font-display text-lg text-foreground">TryHackMe – SOC Level 1</span>
+                    <span className="text-sm text-muted-foreground">TryHackMe · 2026</span>
+                  </li>
+                  <li className="flex flex-col">
+                    <span className="font-display text-lg text-foreground">LetsDefend – SOC Analyst Learning Path</span>
+                    <span className="text-sm text-muted-foreground">LetsDefend · 2026</span>
+                  </li>
                 </ul>
               </div>
             </div>

@@ -25,7 +25,7 @@ const AboutSection = () => {
               </p>
               <p>
                 My administrative and documentation background ensures precision and audit-readiness. Now, I am directing this analytical mindset towards Cybersecurity.
-                I actively build home labs, conduct network traffic analysis, and participate in realistic SOC simulations.
+                I build home labs, conduct malware analysis, and document findings through structured investigation reports — all mapped to the MITRE ATT&CK framework.
               </p>
             </div>
           </ScrollReveal>
