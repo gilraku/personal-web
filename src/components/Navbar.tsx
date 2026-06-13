@@ -46,7 +46,7 @@ const Navbar = () => {
               <button
                 key={link.label}
                 onClick={() => scrollToSection(link.href)}
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-500"
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-500 link-underline py-1"
               >
                 {link.label}
               </button>

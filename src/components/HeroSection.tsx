@@ -128,8 +128,6 @@ const HeroSection = () => {
                   filter: "drop-shadow(0 8px 24px hsl(30 10% 18% / 0.12)) drop-shadow(0 2px 6px hsl(30 10% 18% / 0.08))"
                 }}
               />
-              {/* Subtle accent line */}
-              <div className="absolute -bottom-4 left-0 w-24 h-px bg-primary/40" />
             </div>
           </div>
 
@@ -149,7 +147,7 @@ const HeroSection = () => {
                   style={{ animationDelay: "0.3s", animationFillMode: "both" }}
                 >
                   Gilang<br />
-                  <span className="italic text-muted-foreground">Swandaru</span>
+                  <span className="italic text-muted-foreground pl-12 md:pl-16 inline-block">Swandaru</span>
                 </h1>
 
                 {/* Anya sticker - mobile only */}
@@ -170,7 +168,7 @@ const HeroSection = () => {
               </p>
 
               <div
-                className="grid grid-cols-1 md:grid-cols-3 border-y border-border/70 mb-8 animate-fade-in"
+                className="grid grid-cols-1 md:grid-cols-3 mb-8 animate-fade-in"
                 style={{ animationDelay: "0.6s", animationFillMode: "both" }}
               >
                 {[
@@ -178,7 +176,7 @@ const HeroSection = () => {
                   { label: "Building", value: "EKP Digital & AI document extraction" },
                   { label: "Direction", value: "GRC automation and security-aware systems" },
                 ].map((item) => (
-                  <div key={item.label} className="py-5 md:py-6 md:px-6 md:first:pl-0 md:last:pr-0 md:border-r md:last:border-r-0 border-border/70">
+                  <div key={item.label} className="py-5 md:py-6 md:px-6 md:first:pl-0 md:last:pr-0">
                     <p className="font-mono text-[0.7rem] uppercase tracking-widest text-muted-foreground">
                       {item.label}
                     </p>

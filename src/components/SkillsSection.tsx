@@ -35,10 +35,10 @@ const SkillsSection = () => {
           </p>
         </ScrollReveal>
 
-        <div className="border-y border-border/70">
+        <div>
           {skillGroups.map((group, index) => (
             <ScrollReveal key={group.category} delay={150 + index * 50}>
-              <div className="grid grid-cols-12 gap-4 py-6 border-b last:border-b-0 border-border/70">
+              <div className="grid grid-cols-12 gap-4 py-6">
                 <p className="col-span-12 md:col-span-3 font-mono text-sm uppercase tracking-widest text-muted-foreground">
                   {group.category}
                 </p>

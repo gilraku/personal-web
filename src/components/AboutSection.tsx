@@ -46,14 +46,14 @@ const AboutSection = () => {
 
           <div className="col-span-12">
             <ScrollReveal delay={300}>
-              <div className="grid grid-cols-2 md:grid-cols-4 border-y border-border/70">
+              <div className="grid grid-cols-2 md:grid-cols-4">
                 {[
                   { label: "Compliance Ops", desc: "Regulation mapping & EKP" },
                   { label: "GRC", desc: "Controls & audit readiness" },
                   { label: "AI Workflow", desc: "Document extraction" },
                   { label: "Security Tech", desc: "SIEM & secure systems" },
                 ].map((item) => (
-                  <div key={item.label} className="py-6 px-4 md:px-6 md:first:pl-0 md:last:pr-0 md:border-r md:last:border-r-0 border-border/70">
+                  <div key={item.label} className="py-6 px-4 md:px-6 md:first:pl-0 md:last:pr-0">
                     <p className="font-display text-lg text-foreground mb-1">{item.label}</p>
                     <p className="text-sm text-muted-foreground">{item.desc}</p>
                   </div>

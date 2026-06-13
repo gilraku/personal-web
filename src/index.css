@@ -321,7 +321,7 @@
   left: 0;
   width: 0;
   height: 1px;
-  background: hsl(var(--foreground));
+  background: hsl(var(--primary));
   transition: width 0.4s ease;
 }
 

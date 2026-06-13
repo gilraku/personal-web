@@ -52,9 +52,9 @@ const EducationSection = () => {
           </p>
         </ScrollReveal>
 
-        <div className="border-y border-border/70">
+        <div>
           <ScrollReveal delay={150}>
-            <div className="grid grid-cols-12 gap-4 md:gap-8 py-7 border-b border-border/70">
+            <div className="grid grid-cols-12 gap-4 md:gap-8 py-7">
               <div className="col-span-12 md:col-span-3">
                 <p className="font-mono text-sm text-muted-foreground tracking-widest uppercase">
                   University
@@ -84,7 +84,7 @@ const EducationSection = () => {
               <div className="col-span-12 md:col-span-9">
                 <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-8">
                   {training.map((item) => (
-                    <li key={item.title} className="py-4 border-b border-border/70">
+                    <li key={item.title} className="py-4">
                       <span className="font-display text-lg text-foreground">
                         {item.title}
                       </span>

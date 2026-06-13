@@ -24,15 +24,15 @@ const ContactSection = () => {
       <div className="container mx-auto px-6">
         <div className="max-w-2xl">
           <ScrollReveal>
-            <p className="font-mono text-xs text-muted-foreground tracking-widest uppercase mb-8">
+            <h2 className="font-display text-display-md font-normal text-foreground mb-4">
               Contact
-            </p>
+            </h2>
           </ScrollReveal>
 
           <ScrollReveal delay={100}>
-            <h2 className="font-display text-display-sm md:text-display-md font-normal text-foreground mb-10">
+            <p className="text-xl md:text-2xl text-muted-foreground font-display italic leading-relaxed mb-10">
               Let's connect
-            </h2>
+            </p>
           </ScrollReveal>
 
           <ScrollReveal delay={200}>
