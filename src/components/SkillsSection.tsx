@@ -24,15 +24,15 @@ const SkillsSection = () => {
     <section id="skills" className="py-28 border-t border-border">
       <div className="container mx-auto px-6">
         <ScrollReveal>
-          <p className="font-mono text-xs text-muted-foreground tracking-widest uppercase mb-4">
+          <h2 className="font-display text-display-md font-normal text-foreground mb-4">
             Skills
-          </p>
+          </h2>
         </ScrollReveal>
 
         <ScrollReveal delay={100}>
-          <h2 className="font-display text-display-sm md:text-display-md font-normal text-foreground mb-10">
+          <p className="text-xl md:text-2xl text-muted-foreground font-display italic leading-relaxed mb-10">
             Domain & technical stack
-          </h2>
+          </p>
         </ScrollReveal>
 
         <div className="border-y border-border/70">

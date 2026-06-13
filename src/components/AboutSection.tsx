@@ -7,15 +7,15 @@ const AboutSection = () => {
         <div className="grid grid-cols-12 gap-10 lg:gap-16">
           <div className="col-span-12 lg:col-span-5">
             <ScrollReveal>
-              <p className="font-mono text-xs text-muted-foreground tracking-widest uppercase mb-4">
+              <h2 className="font-display text-display-md font-normal text-foreground mb-4">
                 About
-              </p>
+              </h2>
             </ScrollReveal>
 
             <ScrollReveal delay={100}>
-              <h2 className="font-display text-display-sm md:text-display-md font-normal text-foreground">
-                From <span className="italic">Regulatory Compliance</span> to <span className="italic">Compliance Technology</span>.
-              </h2>
+              <p className="text-xl md:text-2xl text-muted-foreground font-display italic leading-relaxed">
+                From <span className="not-italic text-foreground">Regulatory Compliance</span> to <span className="not-italic text-foreground">Compliance Technology</span>.
+              </p>
             </ScrollReveal>
           </div>
 

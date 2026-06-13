@@ -145,7 +145,7 @@ const HeroSection = () => {
 
               <div className="flex items-start gap-4 mb-6">
                 <h1
-                  className="font-display text-display-lg md:text-[5rem] lg:text-[5.75rem] leading-[0.85] font-normal text-foreground animate-fade-in"
+                  className="font-display text-display-lg md:text-[5rem] lg:text-[5.75rem] leading-[0.95] font-normal text-foreground animate-fade-in"
                   style={{ animationDelay: "0.3s", animationFillMode: "both" }}
                 >
                   Gilang<br />
