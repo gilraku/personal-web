@@ -4,26 +4,26 @@ const SkillsSection = () => {
   const skillGroups = [
     {
       category: "Compliance & GRC",
-      skills: ["Regulatory Evaluation", "Environmental Compliance", "Audit Administration"]
+      skills: ["Regulatory Evaluation", "Environmental Compliance", "K3 & LH Workflows", "Control Review", "Audit Documentation"]
     },
     {
-      category: "Cloud & Infrastructure",
-      skills: ["Google Cloud Platform", "AWS (Certified)", "Linux", "Windows"]
+      category: "Software & Product",
+      skills: ["Go", "React", "TypeScript", "PostgreSQL", "REST APIs", "Design Systems", "shadcn/ui"]
     },
     {
-      category: "Security & Monitoring",
-      skills: ["Splunk", "Wireshark", "MITRE ATT&CK", "Malware Analysis (static & dynamic)", "Incident Response", "Log Analysis", "Network Analysis"]
+      category: "AI & Data",
+      skills: ["Document Extraction", "Regulation Parsing", "Spreadsheet Processing", "Machine Learning Fundamentals", "Process Automation"]
     },
     {
-      category: "Digital & Data",
-      skills: ["Spreadsheet Processing", "Cloud Documentation", "Process Optimization", "Microsoft 365"]
+      category: "Security & Cloud",
+      skills: ["Splunk", "Wireshark", "MITRE ATT&CK", "Malware Analysis", "Log Analysis", "AWS", "Google Cloud Platform", "Linux"]
     }
   ];
 
   return (
-    <section id="skills" className="py-36 border-t border-border">
+    <section id="skills" className="py-28 border-t border-border">
       <div className="container mx-auto px-6">
-        <div className="max-w-2xl">
+        <div className="max-w-4xl">
           <ScrollReveal>
             <p className="font-mono text-xs text-muted-foreground tracking-widest uppercase mb-8">
               Skills
@@ -32,18 +32,18 @@ const SkillsSection = () => {
 
           <ScrollReveal delay={100}>
             <h2 className="font-display text-display-sm md:text-display-md font-normal text-foreground mb-16">
-              Tools & technologies
+              Domain & technical stack
             </h2>
           </ScrollReveal>
 
-          <div className="space-y-12">
+          <div className="border-y border-border/70">
             {skillGroups.map((group, index) => (
               <ScrollReveal key={group.category} delay={150 + index * 50}>
-                <div className="grid grid-cols-12 gap-4">
-                  <p className="col-span-12 md:col-span-4 text-sm text-muted-foreground">
+                <div className="grid grid-cols-12 gap-4 py-6 border-b last:border-b-0 border-border/70">
+                  <p className="col-span-12 md:col-span-3 font-mono text-xs uppercase tracking-widest text-muted-foreground">
                     {group.category}
                   </p>
-                  <p className="col-span-12 md:col-span-8 font-mono text-sm text-foreground">
+                  <p className="col-span-12 md:col-span-9 text-sm text-foreground leading-relaxed">
                     {group.skills.join(", ")}
                   </p>
                 </div>
@@ -52,8 +52,8 @@ const SkillsSection = () => {
           </div>
 
           <ScrollReveal delay={400}>
-            <p className="mt-16 text-sm text-muted-foreground italic">
-              Building strong fundamentals through continuous practice.
+            <p className="mt-10 text-sm text-muted-foreground italic max-w-2xl">
+              I use software, AI, and security fundamentals to make compliance workflows more structured, measurable, and audit-ready.
             </p>
           </ScrollReveal>
         </div>

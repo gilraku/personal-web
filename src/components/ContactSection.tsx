@@ -37,8 +37,9 @@ const ContactSection = () => {
 
           <ScrollReveal delay={200}>
             <p className="text-muted-foreground leading-relaxed mb-12 max-w-lg">
-              Interested in cybersecurity or just want to say hello?
-              I'm always open to connecting with fellow learners and professionals.
+              Interested in compliance technology, GRC automation, AI-assisted
+              regulation workflows, or cybersecurity? I am open to practical
+              conversations with builders, analysts, and teams working on those problems.
             </p>
           </ScrollReveal>
 

@@ -112,16 +112,16 @@ const HeroSection = () => {
   }, []);
 
   return (
-    <section className="min-h-screen flex items-center pt-16">
-      <div className="container mx-auto px-6 py-20">
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+    <section className="min-h-[calc(100vh-4rem)] flex items-center pt-16">
+      <div className="container mx-auto px-6 py-16 md:py-20">
+        <div className="grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           {/* Image - Asymmetric left side (hidden on mobile) */}
-          <div className="lg:col-span-5 order-2 lg:order-1 hidden lg:block">
+          <div className="lg:col-span-4 order-2 lg:order-1 hidden lg:block">
             <div className="relative animate-float">
               <img
                 src={transparentSrc ?? profileImage}
                 alt="Gilang Swandaru"
-                className="w-full max-w-sm lg:max-w-none object-contain"
+                className="w-full max-w-xs lg:max-w-sm object-contain"
                 style={{
                   opacity: transparentSrc ? 1 : 0,
                   transition: "opacity 300ms ease",
@@ -134,11 +134,18 @@ const HeroSection = () => {
           </div>
 
           {/* Content - Right side */}
-          <div className="lg:col-span-7 order-1 lg:order-2 lg:pl-8">
-            <div className="max-w-lg">
+          <div className="lg:col-span-8 order-1 lg:order-2">
+            <div className="max-w-3xl">
+              <p
+                className="font-mono text-xs text-muted-foreground tracking-widest uppercase mb-6 animate-fade-in"
+                style={{ animationDelay: "0.2s", animationFillMode: "both" }}
+              >
+                Compliance technology / GRC automation / AI workflows
+              </p>
+
               <div className="flex items-start gap-4 mb-6">
                 <h1
-                  className="font-display text-display-lg md:text-[5rem] lg:text-[6rem] font-normal text-foreground animate-fade-in"
+                  className="font-display text-display-lg md:text-[5rem] lg:text-[5.75rem] font-normal text-foreground animate-fade-in"
                   style={{ animationDelay: "0.3s", animationFillMode: "both" }}
                 >
                   Gilang<br />
@@ -154,12 +161,33 @@ const HeroSection = () => {
               </div>
 
               <p
-                className="text-lg text-muted-foreground mb-8 max-w-md leading-relaxed animate-fade-in"
+                className="text-lg text-muted-foreground mb-8 max-w-2xl leading-relaxed animate-fade-in"
                 style={{ animationDelay: "0.5s", animationFillMode: "both" }}
               >
-                Transitioning from Regulatory Compliance & Ops into Cybersecurity.
-                Passionate about Blue Team Operations, GRC, and Security Monitoring.
+                Building compliance technology at the intersection of regulation, AI,
+                and cybersecurity. I digitize audit-ready workflows and expand them
+                with security-aware engineering.
               </p>
+
+              <div
+                className="grid grid-cols-1 md:grid-cols-3 border-y border-border/70 mb-8 animate-fade-in"
+                style={{ animationDelay: "0.6s", animationFillMode: "both" }}
+              >
+                {[
+                  { label: "Current role", value: "Environmental Sustainability Compliance" },
+                  { label: "Building", value: "EKP Digital & AI document extraction" },
+                  { label: "Direction", value: "GRC automation and security-aware systems" },
+                ].map((item) => (
+                  <div key={item.label} className="py-5 md:py-6 md:px-6 md:first:pl-0 md:last:pr-0 md:border-r md:last:border-r-0 border-border/70">
+                    <p className="font-mono text-[0.7rem] uppercase tracking-widest text-muted-foreground">
+                      {item.label}
+                    </p>
+                    <p className="mt-2 text-sm text-foreground leading-relaxed">
+                      {item.value}
+                    </p>
+                  </div>
+                ))}
+              </div>
 
               <div
                 className="flex flex-col sm:flex-row gap-6 text-sm animate-fade-in"
@@ -169,7 +197,7 @@ const HeroSection = () => {
                   onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
                   className="group inline-flex items-center gap-2 text-foreground hover-subtle"
                 >
-                  <span className="link-underline">View my journey</span>
+                  <span className="link-underline">View featured work</span>
                   <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                 </button>
 
