@@ -49,7 +49,7 @@ const ProjectsSection = () => {
     <section id="projects" className="py-28 border-t border-border">
       <div className="container mx-auto px-6">
         <ScrollReveal>
-          <p className="font-mono text-xs text-muted-foreground tracking-widest uppercase mb-8">
+          <p className="font-mono text-xs text-muted-foreground tracking-widest uppercase mb-4">
             Projects
           </p>
         </ScrollReveal>
@@ -61,7 +61,7 @@ const ProjectsSection = () => {
         </ScrollReveal>
 
         <ScrollReveal delay={125}>
-          <p className="text-muted-foreground leading-relaxed max-w-2xl mb-14">
+          <p className="text-muted-foreground text-base md:text-lg leading-relaxed max-w-2xl mb-10">
             Selected work that connects my current compliance role with software,
             AI-assisted document workflows, and cybersecurity practice.
           </p>

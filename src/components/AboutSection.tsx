@@ -7,7 +7,7 @@ const AboutSection = () => {
         <div className="grid grid-cols-12 gap-10 lg:gap-16">
           <div className="col-span-12 lg:col-span-5">
             <ScrollReveal>
-              <p className="font-mono text-xs text-muted-foreground tracking-widest uppercase mb-8">
+              <p className="font-mono text-xs text-muted-foreground tracking-widest uppercase mb-4">
                 About
               </p>
             </ScrollReveal>
@@ -21,7 +21,7 @@ const AboutSection = () => {
 
           <div className="col-span-12 lg:col-span-7">
             <ScrollReveal delay={200}>
-              <div className="border-accent-left flex flex-col gap-6 text-muted-foreground leading-relaxed">
+              <div className="border-accent-left flex flex-col gap-6 text-muted-foreground text-base md:text-lg leading-relaxed">
                 <p>
                   I work in Environmental Sustainability compliance at PT Adaro Indonesia,
                   where I help manage Evaluasi Kepatuhan Peraturan (EKP) workflows for
